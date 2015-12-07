@@ -9,6 +9,26 @@
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
+## Example
+
+```swift
+let hello = StyledString(string: "Hello")
+  .withUnderline()
+  .withColor(UIColor.blueColor())
+let world = StyledString(string: "world")
+  .withStrikethrough()
+  .withColor(UIColor.redColor())
+
+label.attributedText = (hello + " " + world)
+  .withShadow()
+  .withFont(UIFont.boldSystemFontOfSize(50))
+  .NSAttributedString()
+```
+
+Result:
+
+![Example image](https://cloud.githubusercontent.com/assets/75655/11640296/2e96c190-9d32-11e5-8706-42dfbdf439fe.png)
+
 ## Requirements
 
 ## Installation
