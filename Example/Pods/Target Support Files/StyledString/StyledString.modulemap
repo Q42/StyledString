@@ -1,6 +1,0 @@
-framework module StyledString {
-  umbrella header "StyledString-umbrella.h"
-
-  export *
-  module * { export * }
-}
