@@ -5,11 +5,25 @@
 [![License](https://img.shields.io/cocoapods/l/StyledString.svg?style=flat)](http://cocoapods.org/pods/StyledString)
 [![Platform](https://img.shields.io/cocoapods/p/StyledString.svg?style=flat)](http://cocoapods.org/pods/StyledString)
 
-## Usage
+## Example
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+```swift
+let hello = StyledString(string: "Hello")
+  .withUnderline()
+  .withColor(UIColor.blueColor())
+let world = StyledString(string: "world")
+  .withStrikethrough()
+  .withColor(UIColor.redColor())
 
-## Requirements
+label.attributedText = (hello + " " + world)
+  .withShadow()
+  .withFont(UIFont.boldSystemFontOfSize(50))
+  .NSAttributedString()
+```
+
+Result:
+
+![Example image](https://cloud.githubusercontent.com/assets/75655/11640296/2e96c190-9d32-11e5-8706-42dfbdf439fe.png)
 
 ## Installation
 
@@ -20,9 +34,11 @@ it, simply add the following line to your Podfile:
 pod "StyledString"
 ```
 
-## Author
+Releases
+--------
 
-Sander de Vos, sander@q42.nl
+ - **0.1.0** - 2015-12-02 - Initial public release
+ - 0.0.0 - 2015-02-02 - Initial private version for project at [Q42](http://q42.com)
 
 ## License
 
