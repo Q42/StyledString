@@ -1,9 +1,9 @@
-# StyledString
-
-[![CI Status](http://img.shields.io/travis/Sander de Vos/StyledString.svg?style=flat)](https://travis-ci.org/Sander de Vos/StyledString)
+<img src="https://cloud.githubusercontent.com/assets/75655/11761753/631eee38-a0cf-11e5-9b23-4d201f1705cf.png" width="185" alt="StyledString">   [![CI Status](http://img.shields.io/travis/Sander de Vos/StyledString.svg?style=flat)](https://travis-ci.org/Sander de Vos/StyledString)
 [![Version](https://img.shields.io/cocoapods/v/StyledString.svg?style=flat)](http://cocoapods.org/pods/StyledString)
 [![License](https://img.shields.io/cocoapods/l/StyledString.svg?style=flat)](http://cocoapods.org/pods/StyledString)
 [![Platform](https://img.shields.io/cocoapods/p/StyledString.svg?style=flat)](http://cocoapods.org/pods/StyledString)
+
+<hr>
 
 ## Example
 
