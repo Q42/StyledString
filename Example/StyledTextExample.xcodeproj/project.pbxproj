@@ -13,6 +13,7 @@
 		E228C9B31C162BCC0013DCCF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E228C9B11C162BCC0013DCCF /* Main.storyboard */; };
 		E228C9B51C162BCC0013DCCF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E228C9B41C162BCC0013DCCF /* Assets.xcassets */; };
 		E228C9B81C162BCC0013DCCF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E228C9B61C162BCC0013DCCF /* LaunchScreen.storyboard */; };
+		E271CB4D1C1C34C500F9E213 /* ViewController+Q42Projects.swift in Sources */ = {isa = PBXBuildFile; fileRef = E271CB4C1C1C34C500F9E213 /* ViewController+Q42Projects.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		E228C9B41C162BCC0013DCCF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E228C9B71C162BCC0013DCCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E228C9B91C162BCC0013DCCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E271CB4C1C1C34C500F9E213 /* ViewController+Q42Projects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+Q42Projects.swift"; sourceTree = "<group>"; };
 		F9C9EEEB6AB501FAC9A29B12 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -79,11 +81,12 @@
 			isa = PBXGroup;
 			children = (
 				E228C9AD1C162BCC0013DCCF /* AppDelegate.swift */,
-				E228C9AF1C162BCC0013DCCF /* ViewController.swift */,
-				E228C9B11C162BCC0013DCCF /* Main.storyboard */,
 				E228C9B41C162BCC0013DCCF /* Assets.xcassets */,
-				E228C9B61C162BCC0013DCCF /* LaunchScreen.storyboard */,
 				E228C9B91C162BCC0013DCCF /* Info.plist */,
+				E228C9B61C162BCC0013DCCF /* LaunchScreen.storyboard */,
+				E228C9B11C162BCC0013DCCF /* Main.storyboard */,
+				E228C9AF1C162BCC0013DCCF /* ViewController.swift */,
+				E271CB4C1C1C34C500F9E213 /* ViewController+Q42Projects.swift */,
 			);
 			path = StyledTextExample;
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E228C9B01C162BCC0013DCCF /* ViewController.swift in Sources */,
+				E271CB4D1C1C34C500F9E213 /* ViewController+Q42Projects.swift in Sources */,
 				E228C9AE1C162BCC0013DCCF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
