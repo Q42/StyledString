@@ -20,6 +20,10 @@ public struct StyledString {
   public init(string: String) {
     self.node = .Unary(string)
   }
+
+  public init() {
+    self.node = .Unary("")
+  }
 }
 
 extension StyledString: StringLiteralConvertible {
@@ -506,4 +510,38 @@ private func +(lhs: NSAttributedString, rhs: NSAttributedString) -> NSAttributed
   return result
 }
 
+// MARK: SequenceType Additions
 
+extension SequenceType where Generator.Element == StyledString {
+
+  /// Interpose the `separator` between elements of `self`, then concatenate
+  /// the result.  For example:
+  ///
+  ///     ["foo", "bar", "baz"].joinWithSeparator("-|-") // "foo-|-bar-|-baz"
+  @warn_unused_result
+  public func joinWithSeparator(separator: String) -> StyledString {
+    return self.joinWithSeparator(StyledString(string: separator))
+  }
+
+  /// Interpose the `separator` between elements of `self`, then concatenate
+  /// the result.  For example:
+  ///
+  ///     ["foo", "bar", "baz"].joinWithSeparator("-|-") // "foo-|-bar-|-baz"
+  @warn_unused_result
+  public func joinWithSeparator(separator: StyledString) -> StyledString {
+    var result = StyledString(string: "")
+
+    var first = true
+    for item in self {
+      if !first {
+        result = result + separator
+      }
+
+      first = false
+
+      result = result + item
+    }
+
+    return result
+  }
+}
