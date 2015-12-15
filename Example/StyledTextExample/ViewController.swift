@@ -18,10 +18,10 @@ class ViewController: UIViewController {
 
     let hello = StyledString(string: "Hello")
       .withUnderline()
-      .withColor(UIColor.blueColor())
+      .withForegroundColor(UIColor.blueColor())
     let world = StyledString(string: "world")
       .withStrikethrough()
-      .withColor(UIColor.redColor())
+      .withForegroundColor(UIColor.redColor())
 
     label.attributedText = (hello + " " + world)
       .withShadow()

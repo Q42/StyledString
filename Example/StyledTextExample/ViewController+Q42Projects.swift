@@ -26,13 +26,13 @@ extension ViewController {
 
   private func thin(str: String) -> StyledString {
     return StyledString(string: str)
-      .withColor(UIColor(red: 0.204, green: 0.204, blue: 0.204, alpha: 1.0))
+      .withForegroundColor(UIColor(red: 0.204, green: 0.204, blue: 0.204, alpha: 1.0))
       .withFont(UIFont.systemFontOfSize(72, weight: UIFontWeightThin))
   }
 
   private func light(str: String) -> StyledString {
     return StyledString(string: str)
-      .withColor(UIColor.blackColor())
+      .withForegroundColor(UIColor.blackColor())
       .withFont(UIFont.systemFontOfSize(72, weight: UIFontWeightLight))
   }
 }
