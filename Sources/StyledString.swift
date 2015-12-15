@@ -13,16 +13,21 @@ public struct StyledString {
   private let node: StyleNode
   private var style: Style = Style()
 
-  private init(node: StyleNode) {
-    self.node = node
+  public init() {
+    self.node = .Unary("")
   }
 
   public init(string: String) {
     self.node = .Unary(string)
   }
 
-  public init() {
-    self.node = .Unary("")
+  init(node: StyleNode) {
+    self.node = node
+  }
+
+  init(string: String, style: Style) {
+    self.node = .Unary(string)
+    self.style = style
   }
 }
 
@@ -52,6 +57,18 @@ public enum TextEffect {
 }
 
 public extension StyledString {
+
+  public init(NSAttributedString: Foundation.NSAttributedString) {
+    let string = NSAttributedString.string
+
+    var segments: [StyledString] = []
+
+    NSAttributedString.enumerateAttributesInRange(NSMakeRange(0, NSAttributedString.length), options: []){ attributes, range, _ in
+      segments.append(StyledString(string: string.substringWithRange(range), style: Style(attributes: attributes)))
+    }
+    self.node = segments.joinWithSeparator("").node
+  }
+
   public func NSAttributedString() -> Foundation.NSAttributedString {
     return NSAttributedString(style)
   }

@@ -14,12 +14,28 @@ private func ??=<T>(inout l: T?, @autoclosure val: () -> T?) {
 enum TextLink {
   case Url(NSURL)
   case UrlString(String)
+
+  init?(value: Any) {
+    if let string = value as? String {
+      self = .UrlString(string)
+    } else if let url = value as? NSURL {
+      self = .Url(url)
+    }
+    return nil
+  }
 }
 
 extension TextEffect {
   var value: String {
     switch self {
     case LetterPress: return NSTextEffectLetterpressStyle
+    }
+  }
+
+  init?(value: String) {
+    switch value {
+    case NSTextEffectLetterpressStyle: self = .LetterPress
+    default: return nil
     }
   }
 }
@@ -67,6 +83,69 @@ extension StyledString {
     var lineBreakMode: NSLineBreakMode?
     var hyphenationFactor: Float?
     var baseWritingDirection: NSWritingDirection?
+
+    init() {
+    }
+
+    init(attributes: [String: AnyObject]) {
+      font = attributes[NSFontAttributeName] as? UIFont
+      foregroundColor = attributes[NSForegroundColorAttributeName] as? UIColor
+      backgroundColor = attributes[NSBackgroundColorAttributeName] as? UIColor
+      ligature = attributes[NSBackgroundColorAttributeName] as? Bool
+      kern = attributes[NSKernAttributeName] as? Float
+      if let rawValue = attributes[NSStrikethroughStyleAttributeName] as? Int {
+        strikethroughStyle = NSUnderlineStyle(rawValue: rawValue)
+      }
+      strikethroughColor = attributes[NSStrikethroughColorAttributeName] as? UIColor
+      if let rawValue = attributes[NSUnderlineStyleAttributeName] as? Int {
+        underlineStyle = NSUnderlineStyle(rawValue: rawValue)
+      }
+      underlineColor = attributes[NSUnderlineColorAttributeName] as? UIColor
+      strokeWidth = attributes[NSStrokeWidthAttributeName] as? Float
+
+      strokeColor = attributes[NSStrokeColorAttributeName] as? UIColor
+
+      if let rawValue = attributes[NSTextEffectAttributeName] as? String {
+        textEffect = TextEffect(value: rawValue)
+      }
+
+      attachment = attributes[NSAttachmentAttributeName] as? NSTextAttachment
+
+      link = TextLink(value: attributes[NSLinkAttributeName])
+
+      baselineOffset = attributes[NSBaselineOffsetAttributeName] as? Float
+      obliqueness = attributes[NSObliquenessAttributeName] as? Float
+      expansion = attributes[NSExpansionAttributeName] as? Float
+
+      writingDirection = attributes[NSWritingDirectionAttributeName] as? [Int]
+      verticalGlyphForm = attributes[NSVerticalGlyphFormAttributeName] as? Bool
+
+      // Shadow
+      if let shadow = attributes[NSShadowAttributeName] as? NSShadow {
+        shadowOffset = shadow.shadowOffset
+        shadowBlurRadius = shadow.shadowBlurRadius
+        shadowColor = shadow.shadowColor
+      }
+
+      // Paragraph Style
+      if let paragraphStyle = attributes[NSParagraphStyleAttributeName] as? NSParagraphStyle {
+        alignment = paragraphStyle.alignment
+        firstLineHeadIndent = paragraphStyle.firstLineHeadIndent
+        headIndent = paragraphStyle.headIndent
+        tailIndent = paragraphStyle.tailIndent
+        lineHeightMultiple = paragraphStyle.lineHeightMultiple
+        maximumLineHeight = paragraphStyle.maximumLineHeight
+        minimumLineHeight = paragraphStyle.minimumLineHeight
+        lineSpacing = paragraphStyle.lineSpacing
+        paragraphSpacing = paragraphStyle.paragraphSpacing
+        paragraphSpacingBefore = paragraphStyle.paragraphSpacingBefore
+        tabStops = paragraphStyle.tabStops
+        defaultTabInterval = paragraphStyle.defaultTabInterval
+        lineBreakMode = paragraphStyle.lineBreakMode
+        hyphenationFactor = paragraphStyle.hyphenationFactor
+        baseWritingDirection = paragraphStyle.baseWritingDirection
+      }
+    }
 
     func merge(style: Style) -> Style {
       var result = self
