@@ -286,21 +286,6 @@ public func + (lhs: StyledString, rhs: StyledString) -> StyledString {
   return StyledString(node: .Binary(lhs, rhs))
 }
 
-// MARK: NSAttributedString Additions
-
-private extension NSAttributedString {
-  private convenience init(string: String, style: StyledString.Style) {
-    self.init(string: string, attributes: style.attributes)
-  }
-}
-
-private func +(lhs: NSAttributedString, rhs: NSAttributedString) -> NSAttributedString {
-  let result = NSMutableAttributedString()
-  result.appendAttributedString(lhs)
-  result.appendAttributedString(rhs)
-  return result
-}
-
 // MARK: SequenceType Additions
 
 extension SequenceType where Generator.Element == StyledString {
