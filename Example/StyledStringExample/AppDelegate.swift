@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  StyledTextExample
+//  StyledStringExample
 //
 //  Created by Tom Lokhorst on 2015-12-07.
 //  Copyright © 2015 Tom Lokhorst. All rights reserved.
