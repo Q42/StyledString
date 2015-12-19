@@ -319,13 +319,13 @@ public extension StyledString {
     return new
   }
 
-  public func withForegroundColor(foregroundColor: UIColor? = nil) -> StyledString {
+  public func withForegroundColor(foregroundColor: UIColor?) -> StyledString {
     var new = self
     new.style.foregroundColor = foregroundColor
     return new
   }
 
-  public func withBackgroundColor(backgroundColor: UIColor? = nil) -> StyledString {
+  public func withBackgroundColor(backgroundColor: UIColor?) -> StyledString {
     var new = self
     new.style.backgroundColor = backgroundColor
     return new
@@ -440,39 +440,39 @@ public extension StyledString {
     return new
   }
 
-  public func withFirstLineHeadIndent(firstLineHeadIndent: CGFloat? = nil) -> StyledString {
+  public func withFirstLineHeadIndent(firstLineHeadIndent: CGFloat?) -> StyledString {
     var new = self
     new.style.firstLineHeadIndent = firstLineHeadIndent
     return new
   }
 
-  public func withHeadIndent(headIndent: CGFloat? = nil) -> StyledString {
+  public func withHeadIndent(headIndent: CGFloat?) -> StyledString {
     var new = self
     new.style.headIndent = headIndent
     return new
   }
 
-  public func withTailIndent(tailIndent: CGFloat? = nil) -> StyledString {
+  public func withTailIndent(tailIndent: CGFloat?) -> StyledString {
     var new = self
     new.style.tailIndent = tailIndent
     return new
   }
 
-  public func withLineHeightMultiple(lineHeightMultiple: CGFloat? = nil) -> StyledString {
+  public func withLineHeightMultiple(lineHeightMultiple: CGFloat?) -> StyledString {
     var new = self
     new.style.lineHeightMultiple = lineHeightMultiple
     return new
   }
 
-  public func withMaximumLineHeight(maximumLineHeight: CGFloat? = nil) -> StyledString {
+  public func withMaximumLineHeight(maximumLineHeight: CGFloat?) -> StyledString {
     var new = self
     new.style.maximumLineHeight = maximumLineHeight
     return new
   }
 
-  public func withMinimumLineHeight(minimumLineHeight: CGFloat? = nil) -> StyledString {
+  public func withMinimumLineHeight(minimumLineHeight: CGFloat?) -> StyledString {
     var new = self
-    new.style.lineHeightMultiple = minimumLineHeight
+    new.style.minimumLineHeight = minimumLineHeight
     return new
   }
 
@@ -482,25 +482,25 @@ public extension StyledString {
     return new
   }
 
-  public func withParagraphSpacing(paragraphSpacing: CGFloat? = nil) -> StyledString {
+  public func withParagraphSpacing(paragraphSpacing: CGFloat?) -> StyledString {
     var new = self
     new.style.paragraphSpacing = paragraphSpacing
     return new
   }
 
-  public func withParagraphSpacingBefore(paragraphSpacingBefore: CGFloat? = nil) -> StyledString {
+  public func withParagraphSpacingBefore(paragraphSpacingBefore: CGFloat?) -> StyledString {
     var new = self
     new.style.paragraphSpacingBefore = paragraphSpacingBefore
     return new
   }
 
-  public func withDefaultTabInterval(defaultTabInterval: CGFloat? = nil) -> StyledString {
+  public func withDefaultTabInterval(defaultTabInterval: CGFloat?) -> StyledString {
     var new = self
     new.style.defaultTabInterval = defaultTabInterval
     return new
   }
 
-  public func withTabStops(tabStops: [NSTextTab]? = nil) -> StyledString {
+  public func withTabStops(tabStops: [NSTextTab]?) -> StyledString {
     var new = self
     new.style.tabStops = tabStops
     return new
