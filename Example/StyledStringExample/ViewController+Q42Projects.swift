@@ -1,6 +1,6 @@
 //
 //  ViewController+Q42Projects.swift
-//  StyledTextExample
+//  StyledStringExample
 //
 //  Created by Tom Lokhorst on 2015-12-12.
 //  Copyright © 2015 Tom Lokhorst. All rights reserved.

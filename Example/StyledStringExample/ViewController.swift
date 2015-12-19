@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  StyledTextExample
+//  StyledStringExample
 //
 //  Created by Sander de Vos on 12/02/2015.
 //  Copyright (c) 2015 Sander de Vos. All rights reserved.
