@@ -22,10 +22,10 @@ class ViewController: UIViewController {
   }
 
   private func createWithMethods() -> NSAttributedString {
-    let hello = StyledString(string: "Hello")
+    let hello = StyledString("Hello")
       .withUnderline()
       .withForegroundColor(.blueColor())
-    let world = StyledString(string: "world")
+    let world = StyledString("world")
       .withStrikethrough()
       .withForegroundColor(.redColor())
 
@@ -36,11 +36,11 @@ class ViewController: UIViewController {
   }
 
   private func createWithVars() -> NSAttributedString {
-    var hello = StyledString(string: "Hello")
+    var hello = StyledString("Hello")
     hello.underlineStyle = .StyleSingle
     hello.foregroundColor = .blueColor()
 
-    var world = StyledString(string: "world")
+    var world = StyledString("world")
     world.strikethroughStyle = .StyleSingle
     world.foregroundColor = .redColor()
 

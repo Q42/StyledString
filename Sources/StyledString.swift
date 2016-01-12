@@ -17,7 +17,7 @@ public struct StyledString {
     self.node = .Unary("")
   }
 
-  public init(string: String) {
+  public init(_ string: String) {
     self.node = .Unary(string)
   }
 
@@ -25,7 +25,7 @@ public struct StyledString {
     self.node = node
   }
 
-  init(string: String, style: Style) {
+  init(_ string: String, style: Style) {
     self.node = .Unary(string)
     self.style = style
   }
@@ -37,15 +37,15 @@ extension StyledString: StringLiteralConvertible {
   public typealias StringLiteralType = String
 
   public init(stringLiteral value: String) {
-    self.init(string: value)
+    self.init(value)
   }
 
   public init(extendedGraphemeClusterLiteral value: String) {
-    self.init(string: value)
+    self.init(value)
   }
 
   public init(unicodeScalarLiteral value: String) {
-    self.init(string: value)
+    self.init(value)
   }
 }
 
@@ -75,7 +75,7 @@ public extension StyledString {
     var segments: [StyledString] = []
 
     NSAttributedString.enumerateAttributesInRange(NSMakeRange(0, NSAttributedString.length), options: []){ attributes, range, _ in
-      segments.append(StyledString(string: string.substringWithRange(range), style: Style(attributes: attributes)))
+      segments.append(StyledString(string.substringWithRange(range), style: Style(attributes: attributes)))
     }
     self.node = segments.joinWithSeparator("").node
   }
@@ -517,7 +517,7 @@ extension SequenceType where Generator.Element == StyledString {
   ///     ["foo", "bar", "baz"].joinWithSeparator("-|-") // "foo-|-bar-|-baz"
   @warn_unused_result
   public func joinWithSeparator(separator: String) -> StyledString {
-    return self.joinWithSeparator(StyledString(string: separator))
+    return self.joinWithSeparator(StyledString(separator))
   }
 
   /// Interpose the `separator` between elements of `self`, then concatenate
@@ -526,7 +526,7 @@ extension SequenceType where Generator.Element == StyledString {
   ///     ["foo", "bar", "baz"].joinWithSeparator("-|-") // "foo-|-bar-|-baz"
   @warn_unused_result
   public func joinWithSeparator(separator: StyledString) -> StyledString {
-    var result = StyledString(string: "")
+    var result = StyledString("")
 
     var first = true
     for item in self {
