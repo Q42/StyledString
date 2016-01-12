@@ -11,23 +11,45 @@ import StyledString
 
 class ViewController: UIViewController {
 
-  @IBOutlet weak var label: UILabel!
+  @IBOutlet weak var label1: UILabel!
+  @IBOutlet weak var label2: UILabel!
 
   override func viewDidLoad() {
     super.viewDidLoad()
 
+    label1.attributedText = createWithMethods()
+    label2.attributedText = createWithMethods()
+  }
+
+  private func createWithMethods() -> NSAttributedString {
     let hello = StyledString(string: "Hello")
       .withUnderline()
-      .withForegroundColor(UIColor.blueColor())
+      .withForegroundColor(.blueColor())
     let world = StyledString(string: "world")
       .withStrikethrough()
-      .withForegroundColor(UIColor.redColor())
+      .withForegroundColor(.redColor())
 
-    label.attributedText = (hello + " " + world)
+    return (hello + " " + world)
       .withShadow()
-      .withFont(UIFont.boldSystemFontOfSize(50))
+      .withFont(.boldSystemFontOfSize(50))
       .NSAttributedString()
-
   }
+
+  private func createWithVars() -> NSAttributedString {
+    var hello = StyledString(string: "Hello")
+    hello.underlineStyle = .StyleSingle
+    hello.foregroundColor = .blueColor()
+
+    var world = StyledString(string: "world")
+    world.strikethroughStyle = .StyleSingle
+    world.foregroundColor = .redColor()
+
+    var helloWord = (hello + " " + world)
+    helloWord.shadowOffset = CGSizeMake(1, 1)
+    helloWord.font = .boldSystemFontOfSize(50)
+
+    return helloWord.NSAttributedString()
+  }
+
 
 }
