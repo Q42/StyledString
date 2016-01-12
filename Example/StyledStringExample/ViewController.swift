@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  StyledTextExample
+//  StyledStringExample
 //
 //  Created by Sander de Vos on 12/02/2015.
 //  Copyright (c) 2015 Sander de Vos. All rights reserved.
@@ -18,10 +18,10 @@ class ViewController: UIViewController {
 
     let hello = StyledString(string: "Hello")
       .withUnderline()
-      .withColor(UIColor.blueColor())
+      .withForegroundColor(UIColor.blueColor())
     let world = StyledString(string: "world")
       .withStrikethrough()
-      .withColor(UIColor.redColor())
+      .withForegroundColor(UIColor.redColor())
 
     label.attributedText = (hello + " " + world)
       .withShadow()

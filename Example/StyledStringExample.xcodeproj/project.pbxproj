@@ -19,7 +19,7 @@
 /* Begin PBXFileReference section */
 		04DF6A940AF91A183FE3041D /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		51D8F05458A04FC11EBB539C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		E228C9AA1C162BCC0013DCCF /* StyledTextExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StyledTextExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E228C9AA1C162BCC0013DCCF /* StyledStringExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StyledStringExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E228C9AD1C162BCC0013DCCF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E228C9AF1C162BCC0013DCCF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E228C9B21C162BCC0013DCCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -62,7 +62,7 @@
 		E228C9A11C162BCC0013DCCF = {
 			isa = PBXGroup;
 			children = (
-				E228C9AC1C162BCC0013DCCF /* StyledTextExample */,
+				E228C9AC1C162BCC0013DCCF /* StyledStringExample */,
 				E228C9AB1C162BCC0013DCCF /* Products */,
 				228460B353CF18308A3F90F6 /* Pods */,
 				5F8A472CD3653E87481854A5 /* Frameworks */,
@@ -72,12 +72,12 @@
 		E228C9AB1C162BCC0013DCCF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E228C9AA1C162BCC0013DCCF /* StyledTextExample.app */,
+				E228C9AA1C162BCC0013DCCF /* StyledStringExample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E228C9AC1C162BCC0013DCCF /* StyledTextExample */ = {
+		E228C9AC1C162BCC0013DCCF /* StyledStringExample */ = {
 			isa = PBXGroup;
 			children = (
 				E228C9AD1C162BCC0013DCCF /* AppDelegate.swift */,
@@ -88,15 +88,15 @@
 				E228C9AF1C162BCC0013DCCF /* ViewController.swift */,
 				E271CB4C1C1C34C500F9E213 /* ViewController+Q42Projects.swift */,
 			);
-			path = StyledTextExample;
+			path = StyledStringExample;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E228C9A91C162BCC0013DCCF /* StyledTextExample */ = {
+		E228C9A91C162BCC0013DCCF /* StyledStringExample */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E228C9BC1C162BCC0013DCCF /* Build configuration list for PBXNativeTarget "StyledTextExample" */;
+			buildConfigurationList = E228C9BC1C162BCC0013DCCF /* Build configuration list for PBXNativeTarget "StyledStringExample" */;
 			buildPhases = (
 				E86B4B26E086053AE15441C3 /* Check Pods Manifest.lock */,
 				E228C9A61C162BCC0013DCCF /* Sources */,
@@ -109,9 +109,9 @@
 			);
 			dependencies = (
 			);
-			name = StyledTextExample;
-			productName = StyledTextExample;
-			productReference = E228C9AA1C162BCC0013DCCF /* StyledTextExample.app */;
+			name = StyledStringExample;
+			productName = StyledStringExample;
+			productReference = E228C9AA1C162BCC0013DCCF /* StyledStringExample.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -129,7 +129,7 @@
 					};
 				};
 			};
-			buildConfigurationList = E228C9A51C162BCC0013DCCF /* Build configuration list for PBXProject "StyledTextExample" */;
+			buildConfigurationList = E228C9A51C162BCC0013DCCF /* Build configuration list for PBXProject "StyledStringExample" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -142,7 +142,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E228C9A91C162BCC0013DCCF /* StyledTextExample */,
+				E228C9A91C162BCC0013DCCF /* StyledStringExample */,
 			);
 		};
 /* End PBXProject section */
@@ -329,9 +329,9 @@
 			baseConfigurationReference = 51D8F05458A04FC11EBB539C /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = StyledTextExample/Info.plist;
+				INFOPLIST_FILE = StyledStringExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Q42.StyledTextExample;
+				PRODUCT_BUNDLE_IDENTIFIER = Q42.StyledStringExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -341,9 +341,9 @@
 			baseConfigurationReference = F9C9EEEB6AB501FAC9A29B12 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = StyledTextExample/Info.plist;
+				INFOPLIST_FILE = StyledStringExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Q42.StyledTextExample;
+				PRODUCT_BUNDLE_IDENTIFIER = Q42.StyledStringExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -351,7 +351,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E228C9A51C162BCC0013DCCF /* Build configuration list for PBXProject "StyledTextExample" */ = {
+		E228C9A51C162BCC0013DCCF /* Build configuration list for PBXProject "StyledStringExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E228C9BA1C162BCC0013DCCF /* Debug */,
@@ -360,7 +360,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E228C9BC1C162BCC0013DCCF /* Build configuration list for PBXNativeTarget "StyledTextExample" */ = {
+		E228C9BC1C162BCC0013DCCF /* Build configuration list for PBXNativeTarget "StyledStringExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E228C9BD1C162BCC0013DCCF /* Debug */,

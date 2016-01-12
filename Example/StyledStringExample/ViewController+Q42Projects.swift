@@ -1,6 +1,6 @@
 //
 //  ViewController+Q42Projects.swift
-//  StyledTextExample
+//  StyledStringExample
 //
 //  Created by Tom Lokhorst on 2015-12-12.
 //  Copyright © 2015 Tom Lokhorst. All rights reserved.
@@ -26,13 +26,13 @@ extension ViewController {
 
   private func thin(str: String) -> StyledString {
     return StyledString(string: str)
-      .withColor(UIColor(red: 0.204, green: 0.204, blue: 0.204, alpha: 1.0))
+      .withForegroundColor(UIColor(red: 0.204, green: 0.204, blue: 0.204, alpha: 1.0))
       .withFont(UIFont.systemFontOfSize(72, weight: UIFontWeightThin))
   }
 
   private func light(str: String) -> StyledString {
     return StyledString(string: str)
-      .withColor(UIColor.blackColor())
+      .withForegroundColor(UIColor.blackColor())
       .withFont(UIFont.systemFontOfSize(72, weight: UIFontWeightLight))
   }
 }

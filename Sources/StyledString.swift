@@ -92,10 +92,15 @@ public extension StyledString {
     return new
   }
 
-  public func withColor(foreground: UIColor? = nil, background: UIColor? = nil) -> StyledString {
+  public func withForegroundColor(foregroundColor: UIColor?) -> StyledString {
     var new = self
-    new.style.foregroundColor = foreground
-    new.style.backgroundColor = background
+    new.style.foregroundColor = foregroundColor
+    return new
+  }
+
+  public func withBackgroundColor(backgroundColor: UIColor?) -> StyledString {
+    var new = self
+    new.style.backgroundColor = backgroundColor
     return new
   }
 
@@ -208,38 +213,68 @@ public extension StyledString {
     return new
   }
 
-  public func withIndent(head: CGFloat? = nil, tail: CGFloat? = nil, firstLineHead: CGFloat? = nil) -> StyledString {
+  public func withFirstLineHeadIndent(firstLineHeadIndent: CGFloat?) -> StyledString {
     var new = self
-    new.style.headIndent = head
-    new.style.tailIndent = tail
-    new.style.firstLineHeadIndent = firstLineHead
+    new.style.firstLineHeadIndent = firstLineHeadIndent
     return new
   }
 
-  public func withLineHeight(multiple: CGFloat? = nil, maximum: CGFloat? = nil, minimum: CGFloat? = nil) -> StyledString {
+  public func withHeadIndent(headIndent: CGFloat?) -> StyledString {
     var new = self
-    new.style.lineHeightMultiple = multiple
-    new.style.maximumLineHeight = maximum
-    new.style.minimumLineHeight = minimum
+    new.style.headIndent = headIndent
     return new
   }
 
-  public func withLineSpacing(spacing: CGFloat?) -> StyledString {
+  public func withTailIndent(tailIndent: CGFloat?) -> StyledString {
     var new = self
-    new.style.lineSpacing = spacing
+    new.style.tailIndent = tailIndent
     return new
   }
 
-  public func withParagraphSpacing(spacing: CGFloat? = nil, spacingBefore: CGFloat? = nil) -> StyledString {
+  public func withLineHeightMultiple(lineHeightMultiple: CGFloat?) -> StyledString {
     var new = self
-    new.style.paragraphSpacing = spacing
-    new.style.paragraphSpacingBefore = spacingBefore
+    new.style.lineHeightMultiple = lineHeightMultiple
     return new
   }
 
-  public func withTabStops(interval: CGFloat? = nil, tabStops: [NSTextTab]? = nil) -> StyledString {
+  public func withMaximumLineHeight(maximumLineHeight: CGFloat?) -> StyledString {
     var new = self
-    new.style.defaultTabInterval = interval
+    new.style.maximumLineHeight = maximumLineHeight
+    return new
+  }
+
+  public func withMinimumLineHeight(minimumLineHeight: CGFloat?) -> StyledString {
+    var new = self
+    new.style.minimumLineHeight = minimumLineHeight
+    return new
+  }
+
+  public func withLineSpacing(lineSpacing: CGFloat?) -> StyledString {
+    var new = self
+    new.style.lineSpacing = lineSpacing
+    return new
+  }
+
+  public func withParagraphSpacing(paragraphSpacing: CGFloat?) -> StyledString {
+    var new = self
+    new.style.paragraphSpacing = paragraphSpacing
+    return new
+  }
+
+  public func withParagraphSpacingBefore(paragraphSpacingBefore: CGFloat?) -> StyledString {
+    var new = self
+    new.style.paragraphSpacingBefore = paragraphSpacingBefore
+    return new
+  }
+
+  public func withDefaultTabInterval(defaultTabInterval: CGFloat?) -> StyledString {
+    var new = self
+    new.style.defaultTabInterval = defaultTabInterval
+    return new
+  }
+
+  public func withTabStops(tabStops: [NSTextTab]?) -> StyledString {
+    var new = self
     new.style.tabStops = tabStops
     return new
   }
