@@ -31,6 +31,8 @@ public struct StyledString {
   }
 }
 
+// MARK: StringLiteralConvertible
+
 extension StyledString: StringLiteralConvertible {
   public typealias StringLiteralType = String
 
@@ -55,6 +57,8 @@ public indirect enum StyleNode {
 public enum TextEffect {
   case LetterPress
 }
+
+// MARK: NSAttributedString support
 
 public extension StyledString {
 
@@ -298,6 +302,8 @@ public extension StyledString {
   }
 
 }
+
+// MARK: StyledString Operators
 
 public func + (lhs: StyledString, rhs: StyledString) -> StyledString {
   return StyledString(node: .Binary(lhs, rhs))
