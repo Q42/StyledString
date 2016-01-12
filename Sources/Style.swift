@@ -11,31 +11,34 @@ private func ??=<T>(inout l: T?, @autoclosure val: () -> T?) {
   l = l ?? val()
 }
 
-enum TextLink {
-  case Url(NSURL)
-  case UrlString(String)
-
-  init?(value: Any) {
+extension Link {
+  init?(value: AnyObject?) {
     if let string = value as? String {
-      self = .UrlString(string)
+      self = .Text(string)
     } else if let url = value as? NSURL {
       self = .Url(url)
     }
     return nil
   }
+
+  var value: AnyObject {
+    switch self {
+    case Text(let value): return value
+    case Url(let value): return value
+    }
+  }
 }
 
 extension TextEffect {
-  var value: String {
-    switch self {
-    case LetterPress: return NSTextEffectLetterpressStyle
-    }
-  }
-
   init?(value: String) {
     switch value {
     case NSTextEffectLetterpressStyle: self = .LetterPress
     default: return nil
+    }
+  }
+  var value: String {
+    switch self {
+    case LetterPress: return NSTextEffectLetterpressStyle
     }
   }
 }
@@ -55,7 +58,7 @@ extension StyledString {
     var strokeColor: UIColor?
     var textEffect: TextEffect?
     var attachment: NSTextAttachment?
-    var link: TextLink?
+    var link: Link?
     var baselineOffset: Float?
     var obliqueness: Float?
     var expansion: Float?
@@ -65,7 +68,7 @@ extension StyledString {
     // Shadow
     var shadowOffset: CGSize?
     var shadowBlurRadius: CGFloat?
-    var shadowColor: AnyObject?
+    var shadowColor: UIColor?
 
     // Paragraph Style
     var alignment: NSTextAlignment?
@@ -111,7 +114,7 @@ extension StyledString {
 
       attachment = attributes[NSAttachmentAttributeName] as? NSTextAttachment
 
-      link = TextLink(value: attributes[NSLinkAttributeName])
+      link = Link(value: attributes[NSLinkAttributeName])
 
       baselineOffset = attributes[NSBaselineOffsetAttributeName] as? Float
       obliqueness = attributes[NSObliquenessAttributeName] as? Float
@@ -124,7 +127,7 @@ extension StyledString {
       if let shadow = attributes[NSShadowAttributeName] as? NSShadow {
         shadowOffset = shadow.shadowOffset
         shadowBlurRadius = shadow.shadowBlurRadius
-        shadowColor = shadow.shadowColor
+        shadowColor = shadow.shadowColor as? UIColor
       }
 
       // Paragraph Style
@@ -234,12 +237,7 @@ extension StyledString {
         attributes[NSAttachmentAttributeName] = attachment
       }
       if let link = self.link {
-        switch link {
-        case .Url(let url):
-          attributes[NSLinkAttributeName] = url
-        case .UrlString(let url):
-          attributes[NSLinkAttributeName] = url
-        }
+        attributes[NSLinkAttributeName] = link.value
       }
       if let baselineOffset = self.baselineOffset {
         attributes[NSBaselineOffsetAttributeName] = baselineOffset
