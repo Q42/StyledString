@@ -348,7 +348,7 @@ public extension StyledString {
     return new
   }
 
-  public func withShadow(offset: CGSize? = CGSizeMake(1, 1), blurRadius: CGFloat? = 1, color: UIColor? = nil) -> StyledString {
+  public func withShadow(offset: CGSize? = CGSizeMake(1, 1), blurRadius: CGFloat? = 0, color: UIColor? = nil) -> StyledString {
     var new = self
     new.style.shadowOffset = offset
     new.style.shadowBlurRadius = blurRadius
