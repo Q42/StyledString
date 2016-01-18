@@ -80,7 +80,7 @@ public extension StyledString {
     self.node = segments.joinWithSeparator("").node
   }
 
-  public func NSAttributedString() -> Foundation.NSAttributedString {
+  public var NSAttributedString: Foundation.NSAttributedString {
     return NSAttributedString(style)
   }
 
