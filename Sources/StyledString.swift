@@ -94,6 +94,15 @@ public extension StyledString {
   }
 }
 
+// MARK: Equabtale
+
+public func == (lhs: StyledString, rhs: StyledString) -> Bool {
+  return lhs.NSAttributedString.isEqualToAttributedString(rhs.NSAttributedString)
+}
+
+extension StyledString: Equatable {
+}
+
 // MARK: Style vars
 
 public extension StyledString {
