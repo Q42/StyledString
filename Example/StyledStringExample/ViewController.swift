@@ -32,7 +32,7 @@ class ViewController: UIViewController {
     return (hello + " " + world)
       .withShadow()
       .withFont(.boldSystemFontOfSize(50))
-      .NSAttributedString()
+      .NSAttributedString
   }
 
   private func createWithVars() -> NSAttributedString {
@@ -48,7 +48,7 @@ class ViewController: UIViewController {
     helloWord.shadowOffset = CGSizeMake(1, 1)
     helloWord.font = .boldSystemFontOfSize(50)
 
-    return helloWord.NSAttributedString()
+    return helloWord.NSAttributedString
   }
 
 
