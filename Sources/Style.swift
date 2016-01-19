@@ -6,6 +6,9 @@
 //
 //
 
+import Foundation
+import UIKit
+
 infix operator ??= { }
 private func ??=<T>(inout l: T?, @autoclosure val: () -> T?) {
   l = l ?? val()
