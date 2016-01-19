@@ -6,6 +6,8 @@
 //
 //
 
+import Foundation
+
 extension NSAttributedString {
   convenience init(string: String, style: StyledString.Style) {
     self.init(string: string, attributes: style.attributes)
