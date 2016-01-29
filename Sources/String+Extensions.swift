@@ -12,6 +12,6 @@ extension String {
   func substringWithRange(range: NSRange) -> String {
     let startIndex = self.startIndex.advancedBy(range.location)
     let endIndex = startIndex.advancedBy(range.length)
-    return substringWithRange(Range(start: startIndex, end: endIndex))
+    return substringWithRange(startIndex..<endIndex)
   }
 }
