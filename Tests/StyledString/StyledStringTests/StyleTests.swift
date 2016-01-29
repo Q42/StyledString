@@ -9,13 +9,13 @@
 import XCTest
 import StyledString
 
-private func AssertAttribute<T: Equatable>(configure: StyledString -> StyledString, _ key: String, _ value: T, file: String = __FILE__, line: UInt = __LINE__) {
+private func AssertAttribute<T: Equatable>(configure: StyledString -> StyledString, _ key: String, _ value: T, file: StaticString = __FILE__, line: UInt = __LINE__) {
   AssertAttribute(configure, key, file: file, line: line) { (other: T) in
     XCTAssertEqual(value, other , "\(key) values should be equal", file: file, line: line)
   }
 }
 
-private func AssertAttribute<T>(configure: StyledString -> StyledString, _ key: String, file: String = __FILE__, line: UInt = __LINE__, compare: T -> ()) {
+private func AssertAttribute<T>(configure: StyledString -> StyledString, _ key: String, file: StaticString = __FILE__, line: UInt = __LINE__, compare: T -> ()) {
   if let value = configure(StyledString("test")).NSAttributedString.attributesAtIndex(0, effectiveRange: nil)[key] as? T {
     compare(value)
   } else {
