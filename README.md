@@ -37,7 +37,8 @@ pod "StyledString"
 Releases
 --------
 
- - **0.2.0** - 2015-12-19 - Renamed some with* methods
+ - 0.3.0 - 2016-03-22 - Swift 2.2 support
+ - 0.2.0 - 2015-12-19 - Renamed some with* methods
  - **0.1.0** - 2015-12-02 - Initial public release
  - 0.0.0 - 2015-02-02 - Initial private version for project at [Q42](http://q42.com)
 
