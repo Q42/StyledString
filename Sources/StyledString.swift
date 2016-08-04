@@ -306,58 +306,74 @@ public extension StyledString {
 // MARK: Style methods
 
 public extension StyledString {
-  public func withFont(_ font: UIFont?) -> StyledString {
+  public func with(font: UIFont?) -> StyledString {
     var new = self
     new.style.font = font
     return new
   }
 
-  public func withForegroundColor(_ foregroundColor: UIColor?) -> StyledString {
+  public func with(foregroundColor: UIColor?) -> StyledString {
     var new = self
     new.style.foregroundColor = foregroundColor
     return new
   }
 
-  public func withBackgroundColor(_ backgroundColor: UIColor?) -> StyledString {
+  public func with(backgroundColor: UIColor?) -> StyledString {
     var new = self
     new.style.backgroundColor = backgroundColor
     return new
   }
 
-  public func withLigatures(_ ligatures: Bool? = true) -> StyledString {
+  public func with(ligatures: Bool?) -> StyledString {
     var new = self
     new.style.ligature = ligatures
     return new
   }
 
-  public func withKerning(_ kern: Float?) -> StyledString {
+  public func withLigatures() -> StyledString {
+    return self.with(ligatures: true)
+  }
+
+  public func with(kerning kern: Float?) -> StyledString {
     var new = self
     new.style.kern = kern
     return new
   }
 
-  public func withUnderline(_ style: NSUnderlineStyle? = .styleSingle, color: UIColor? = nil) -> StyledString {
+  public func with(underlineStyle style: NSUnderlineStyle?, color: UIColor? = nil) -> StyledString {
     var new = self
     new.style.underlineStyle = style
     new.style.underlineColor = color
     return new
   }
 
-  public func withStrikethrough(_ style: NSUnderlineStyle? = .styleSingle, color: UIColor? = nil) -> StyledString {
+  public func withUnderline() -> StyledString {
+    return self.with(underlineStyle: .styleSingle)
+  }
+
+  public func with(strikethroughStyle style: NSUnderlineStyle?, color: UIColor? = nil) -> StyledString {
     var new = self
     new.style.strikethroughStyle = style
     new.style.strikethroughColor = color
     return new
   }
 
-  public func withStroke(_ width: Float? = 1, color: UIColor? = nil) -> StyledString {
+  public func withStrikethrough() -> StyledString {
+    return self.with(strikethroughStyle: .styleSingle)
+  }
+
+  public func with(strokeWidth width: Float?, color: UIColor? = nil) -> StyledString {
     var new = self
     new.style.strokeWidth = width
     new.style.strokeColor = color
     return new
   }
 
-  public func withShadow(_ offset: CGSize? = CGSize(width: 1, height: 1), blurRadius: CGFloat? = 0, color: UIColor? = nil) -> StyledString {
+  public func withStroke() -> StyledString {
+    return self.with(strokeWidth: 1)
+  }
+
+  public func with(shadowOffset offset: CGSize?, blurRadius: CGFloat? = 0, color: UIColor? = nil) -> StyledString {
     var new = self
     new.style.shadowOffset = offset
     new.style.shadowBlurRadius = blurRadius
@@ -365,19 +381,27 @@ public extension StyledString {
     return new
   }
 
-  public func withTextEffect(_ effect: TextEffect? = .letterPress) -> StyledString {
+  public func withShadow() -> StyledString {
+    return self.with(shadowOffset: CGSize(width: 1, height: 1))
+  }
+
+  public func with(textEffect effect: TextEffect?) -> StyledString {
     var new = self
     new.style.textEffect = effect
     return new
   }
 
-  public func withAttachment(_ attachment: NSTextAttachment?) -> StyledString {
+  public func withTextEffect() -> StyledString {
+    return self.with(textEffect: .letterPress)
+  }
+
+  public func with(attachment: NSTextAttachment?) -> StyledString {
     var new = self
     new.style.attachment = attachment
     return new
   }
 
-  public func withLink(_ link: URL?) -> StyledString {
+  public func with(link: URL?) -> StyledString {
     var new = self
     if let link = link {
       new.style.link = .url(link)
@@ -387,7 +411,7 @@ public extension StyledString {
     return new
   }
 
-  public func withLink(_ link: String?) -> StyledString {
+  public func with(link: String?) -> StyledString {
     var new = self
     if let link = link {
       new.style.link = .text(link)
@@ -397,123 +421,127 @@ public extension StyledString {
     return new
   }
 
-  public func withBaselineOffset(_ offset: Float?) -> StyledString {
+  public func with(baselineOffset offset: Float?) -> StyledString {
     var new = self
     new.style.baselineOffset = offset
     return new
   }
 
-  public func withObliqueness(_ obliqueness: Float?) -> StyledString {
+  public func with(obliqueness: Float?) -> StyledString {
     var new = self
     new.style.obliqueness = obliqueness
     return new
   }
 
-  public func withExpansion(_ expansion: Float?) -> StyledString {
+  public func with(expansion: Float?) -> StyledString {
     var new = self
     new.style.expansion = expansion
     return new
   }
 
-  public func withWritingDirection(_ writingDirection: [Int]?) -> StyledString {
+  public func with(writingDirection: [Int]?) -> StyledString {
     var new = self
     new.style.writingDirection = writingDirection
     return new
   }
 
-  public func withVerticalGlyphForm(_ verticalGlyphForm: Bool? = true) -> StyledString {
+  public func with(verticalGlyphForm: Bool?) -> StyledString {
     var new = self
     new.style.verticalGlyphForm = verticalGlyphForm
     return new
   }
 
-  public func withAlignment(_ alignment: NSTextAlignment?) -> StyledString {
+  public func withVerticalGlyphForm() -> StyledString {
+    return self.with(verticalGlyphForm: true)
+  }
+
+  public func with(alignment: NSTextAlignment?) -> StyledString {
     var new = self
     new.style.alignment = alignment
     return new
   }
 
-  public func withFirstLineHeadIndent(_ firstLineHeadIndent: CGFloat?) -> StyledString {
+  public func with(firstLineHeadIndent: CGFloat?) -> StyledString {
     var new = self
     new.style.firstLineHeadIndent = firstLineHeadIndent
     return new
   }
 
-  public func withHeadIndent(_ headIndent: CGFloat?) -> StyledString {
+  public func with(headIndent: CGFloat?) -> StyledString {
     var new = self
     new.style.headIndent = headIndent
     return new
   }
 
-  public func withTailIndent(_ tailIndent: CGFloat?) -> StyledString {
+  public func with(tailIndent: CGFloat?) -> StyledString {
     var new = self
     new.style.tailIndent = tailIndent
     return new
   }
 
-  public func withLineHeightMultiple(_ lineHeightMultiple: CGFloat?) -> StyledString {
+  public func with(lineHeightMultiple: CGFloat?) -> StyledString {
     var new = self
     new.style.lineHeightMultiple = lineHeightMultiple
     return new
   }
 
-  public func withMaximumLineHeight(_ maximumLineHeight: CGFloat?) -> StyledString {
+  public func with(maximumLineHeight: CGFloat?) -> StyledString {
     var new = self
     new.style.maximumLineHeight = maximumLineHeight
     return new
   }
 
-  public func withMinimumLineHeight(_ minimumLineHeight: CGFloat?) -> StyledString {
+  public func with(minimumLineHeight: CGFloat?) -> StyledString {
     var new = self
     new.style.minimumLineHeight = minimumLineHeight
     return new
   }
 
-  public func withLineSpacing(_ lineSpacing: CGFloat?) -> StyledString {
+  public func with(lineSpacing: CGFloat?) -> StyledString {
     var new = self
     new.style.lineSpacing = lineSpacing
     return new
   }
 
-  public func withParagraphSpacing(_ paragraphSpacing: CGFloat?) -> StyledString {
+  public func with(paragraphSpacing: CGFloat?) -> StyledString {
     var new = self
     new.style.paragraphSpacing = paragraphSpacing
     return new
   }
 
-  public func withParagraphSpacingBefore(_ paragraphSpacingBefore: CGFloat?) -> StyledString {
+  public func with(paragraphSpacingBefore: CGFloat?) -> StyledString {
     var new = self
     new.style.paragraphSpacingBefore = paragraphSpacingBefore
     return new
   }
 
-  public func withDefaultTabInterval(_ defaultTabInterval: CGFloat?) -> StyledString {
+  public func with(defaultTabInterval: CGFloat?) -> StyledString {
     var new = self
     new.style.defaultTabInterval = defaultTabInterval
     return new
   }
 
-  public func withTabStops(_ tabStops: [NSTextTab]?) -> StyledString {
+  public func with(tabStops: [NSTextTab]?) -> StyledString {
     var new = self
     new.style.tabStops = tabStops
     return new
   }
 
-  public func withLineBreakMode(_ lineBreakMode: NSLineBreakMode?) -> StyledString {
+  public func with(lineBreakMode: NSLineBreakMode?) -> StyledString {
     var new = self
     new.style.lineBreakMode = lineBreakMode
     return new
   }
 
-  public func withHyphenationFactor(_ hyphenationFactor: Float?) -> StyledString {
+  public func with(hyphenationFactor: Float?) -> StyledString {
     var new = self
     new.style.hyphenationFactor = hyphenationFactor
     return new
   }
 
-  public func withBaseWritingDirection(_ writingDirection: NSWritingDirection?) -> StyledString {
+  public func with(baseWritingDirection: NSWritingDirection?) -> StyledString {
     var new = self
-    new.style.baseWritingDirection = writingDirection
+    new.style.baseWritingDirection = baseWritingDirection
     return new
   }
 
