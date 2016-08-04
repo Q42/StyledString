@@ -10,24 +10,24 @@ import Foundation
 import UIKit
 
 infix operator ??= { }
-private func ??=<T>(inout l: T?, @autoclosure val: () -> T?) {
+private func ??=<T>(l: inout T?, val: @autoclosure () -> T?) {
   l = l ?? val()
 }
 
 extension Link {
   init?(value: AnyObject?) {
     if let string = value as? String {
-      self = .Text(string)
-    } else if let url = value as? NSURL {
-      self = .Url(url)
+      self = .text(string)
+    } else if let url = value as? URL {
+      self = .url(url)
     }
     return nil
   }
 
   var value: AnyObject {
     switch self {
-    case Text(let value): return value
-    case Url(let value): return value
+    case text(let value): return value
+    case url(let value): return value
     }
   }
 }
@@ -35,13 +35,13 @@ extension Link {
 extension TextEffect {
   init?(value: String) {
     switch value {
-    case NSTextEffectLetterpressStyle: self = .LetterPress
+    case NSTextEffectLetterpressStyle: self = .letterPress
     default: return nil
     }
   }
   var value: String {
     switch self {
-    case LetterPress: return NSTextEffectLetterpressStyle
+    case letterPress: return NSTextEffectLetterpressStyle
     }
   }
 }
@@ -153,7 +153,7 @@ extension StyledString {
       }
     }
 
-    func merge(style: Style) -> Style {
+    func merge(_ style: Style) -> Style {
       var result = self
       result.font ??= style.font
       result.foregroundColor ??= style.foregroundColor

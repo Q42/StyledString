@@ -14,19 +14,19 @@ public struct StyledString {
   private var style: Style = Style()
 
   public init() {
-    self.node = .Unary("")
+    self.node = .unary("")
   }
 
   public init(_ string: String) {
-    self.node = .Unary(string)
+    self.node = .unary(string)
   }
 
   init(node: StyleNode) {
     self.node = node
   }
 
-  init(_ string: String, style: Style) {
-    self.node = .Unary(string)
+  init(string: String, style: Style) {
+    self.node = .unary(string)
     self.style = style
   }
 }
@@ -52,44 +52,53 @@ extension StyledString: StringLiteralConvertible {
 // MARK: Support Types
 
 indirect enum StyleNode {
-  case Unary(String)
-  case Binary(StyledString, StyledString)
+  case unary(String)
+  case binary(StyledString, StyledString)
 }
 
 public enum TextEffect {
-  case LetterPress
+  case letterPress
 }
 
 public enum Link {
-  case Url(NSURL)
-  case Text(String)
+  case url(URL)
+  case text(String)
 }
 
 // MARK: NSAttributedString support
 
 public extension StyledString {
 
-  public init(NSAttributedString: Foundation.NSAttributedString) {
-    let string = NSAttributedString.string
+  public init(attributedString: AttributedString) {
+
+    let range = NSRange(location: 0, length: attributedString.length)
+    let nsString = attributedString.string as NSString
 
     var segments: [StyledString] = []
 
-    NSAttributedString.enumerateAttributesInRange(NSMakeRange(0, NSAttributedString.length), options: []){ attributes, range, _ in
-      segments.append(StyledString(string.substringWithRange(range), style: Style(attributes: attributes)))
+    attributedString.enumerateAttributes(in: range, options: []) { (attributes, range, _) in
+      let substring = nsString.substring(with: range)
+      let styledString = StyledString(string: substring, style: Style(attributes: attributes))
+      segments.append(styledString)
     }
-    self.node = segments.joinWithSeparator("").node
+
+    self.node = segments.joined(separator: "").node
   }
 
-  public var NSAttributedString: Foundation.NSAttributedString {
-    return NSAttributedString(style)
+  public var attributedString: AttributedString {
+    return attributedString(parentStyle: style)
   }
 
-  private func NSAttributedString(parentStyle: Style) -> Foundation.NSAttributedString {
+  private func attributedString(parentStyle: Style) -> AttributedString {
     switch node {
-    case let .Unary(string):
-      return Foundation.NSAttributedString(string: string, style: parentStyle)
-    case let .Binary(lhs, rhs):
-      return lhs.NSAttributedString(parentStyle.merge(lhs.style)) + rhs.NSAttributedString(parentStyle.merge(rhs.style))
+    case let .unary(string):
+      return AttributedString(string: string, style: parentStyle)
+
+    case let .binary(lhs, rhs):
+      let las = lhs.attributedString(parentStyle: parentStyle.merge(lhs.style))
+      let ras = rhs.attributedString(parentStyle: parentStyle.merge(rhs.style))
+
+      return las + ras
     }
   }
 }
@@ -97,7 +106,7 @@ public extension StyledString {
 // MARK: Equabtale
 
 public func == (lhs: StyledString, rhs: StyledString) -> Bool {
-  return lhs.NSAttributedString.isEqualToAttributedString(rhs.NSAttributedString)
+  return lhs.attributedString.isEqual(to: rhs.attributedString)
 }
 
 extension StyledString: Equatable {
@@ -297,58 +306,58 @@ public extension StyledString {
 // MARK: Style methods
 
 public extension StyledString {
-  public func withFont(font: UIFont?) -> StyledString {
+  public func withFont(_ font: UIFont?) -> StyledString {
     var new = self
     new.style.font = font
     return new
   }
 
-  public func withForegroundColor(foregroundColor: UIColor?) -> StyledString {
+  public func withForegroundColor(_ foregroundColor: UIColor?) -> StyledString {
     var new = self
     new.style.foregroundColor = foregroundColor
     return new
   }
 
-  public func withBackgroundColor(backgroundColor: UIColor?) -> StyledString {
+  public func withBackgroundColor(_ backgroundColor: UIColor?) -> StyledString {
     var new = self
     new.style.backgroundColor = backgroundColor
     return new
   }
 
-  public func withLigatures(ligatures: Bool? = true) -> StyledString {
+  public func withLigatures(_ ligatures: Bool? = true) -> StyledString {
     var new = self
     new.style.ligature = ligatures
     return new
   }
 
-  public func withKerning(kern: Float?) -> StyledString {
+  public func withKerning(_ kern: Float?) -> StyledString {
     var new = self
     new.style.kern = kern
     return new
   }
 
-  public func withUnderline(style: NSUnderlineStyle? = .StyleSingle, color: UIColor? = nil) -> StyledString {
+  public func withUnderline(_ style: NSUnderlineStyle? = .styleSingle, color: UIColor? = nil) -> StyledString {
     var new = self
     new.style.underlineStyle = style
     new.style.underlineColor = color
     return new
   }
 
-  public func withStrikethrough(style: NSUnderlineStyle? = .StyleSingle, color: UIColor? = nil) -> StyledString {
+  public func withStrikethrough(_ style: NSUnderlineStyle? = .styleSingle, color: UIColor? = nil) -> StyledString {
     var new = self
     new.style.strikethroughStyle = style
     new.style.strikethroughColor = color
     return new
   }
 
-  public func withStroke(width: Float? = 1, color: UIColor? = nil) -> StyledString {
+  public func withStroke(_ width: Float? = 1, color: UIColor? = nil) -> StyledString {
     var new = self
     new.style.strokeWidth = width
     new.style.strokeColor = color
     return new
   }
 
-  public func withShadow(offset: CGSize? = CGSizeMake(1, 1), blurRadius: CGFloat? = 0, color: UIColor? = nil) -> StyledString {
+  public func withShadow(_ offset: CGSize? = CGSize(width: 1, height: 1), blurRadius: CGFloat? = 0, color: UIColor? = nil) -> StyledString {
     var new = self
     new.style.shadowOffset = offset
     new.style.shadowBlurRadius = blurRadius
@@ -356,153 +365,153 @@ public extension StyledString {
     return new
   }
 
-  public func withTextEffect(effect: TextEffect? = .LetterPress) -> StyledString {
+  public func withTextEffect(_ effect: TextEffect? = .letterPress) -> StyledString {
     var new = self
     new.style.textEffect = effect
     return new
   }
 
-  public func withAttachment(attachment: NSTextAttachment?) -> StyledString {
+  public func withAttachment(_ attachment: NSTextAttachment?) -> StyledString {
     var new = self
     new.style.attachment = attachment
     return new
   }
 
-  public func withLink(link: NSURL?) -> StyledString {
+  public func withLink(_ link: URL?) -> StyledString {
     var new = self
     if let link = link {
-      new.style.link = .Url(link)
+      new.style.link = .url(link)
     } else {
       new.style.link = nil
     }
     return new
   }
 
-  public func withLink(link: String?) -> StyledString {
+  public func withLink(_ link: String?) -> StyledString {
     var new = self
     if let link = link {
-      new.style.link = .Text(link)
+      new.style.link = .text(link)
     } else {
       new.style.link = nil
     }
     return new
   }
 
-  public func withBaselineOffset(offset: Float?) -> StyledString {
+  public func withBaselineOffset(_ offset: Float?) -> StyledString {
     var new = self
     new.style.baselineOffset = offset
     return new
   }
 
-  public func withObliqueness(obliqueness: Float?) -> StyledString {
+  public func withObliqueness(_ obliqueness: Float?) -> StyledString {
     var new = self
     new.style.obliqueness = obliqueness
     return new
   }
 
-  public func withExpansion(expansion: Float?) -> StyledString {
+  public func withExpansion(_ expansion: Float?) -> StyledString {
     var new = self
     new.style.expansion = expansion
     return new
   }
 
-  public func withWritingDirection(writingDirection: [Int]?) -> StyledString {
+  public func withWritingDirection(_ writingDirection: [Int]?) -> StyledString {
     var new = self
     new.style.writingDirection = writingDirection
     return new
   }
 
-  public func withVerticalGlyphForm(verticalGlyphForm: Bool? = true) -> StyledString {
+  public func withVerticalGlyphForm(_ verticalGlyphForm: Bool? = true) -> StyledString {
     var new = self
     new.style.verticalGlyphForm = verticalGlyphForm
     return new
   }
 
-  public func withAlignment(alignment: NSTextAlignment?) -> StyledString {
+  public func withAlignment(_ alignment: NSTextAlignment?) -> StyledString {
     var new = self
     new.style.alignment = alignment
     return new
   }
 
-  public func withFirstLineHeadIndent(firstLineHeadIndent: CGFloat?) -> StyledString {
+  public func withFirstLineHeadIndent(_ firstLineHeadIndent: CGFloat?) -> StyledString {
     var new = self
     new.style.firstLineHeadIndent = firstLineHeadIndent
     return new
   }
 
-  public func withHeadIndent(headIndent: CGFloat?) -> StyledString {
+  public func withHeadIndent(_ headIndent: CGFloat?) -> StyledString {
     var new = self
     new.style.headIndent = headIndent
     return new
   }
 
-  public func withTailIndent(tailIndent: CGFloat?) -> StyledString {
+  public func withTailIndent(_ tailIndent: CGFloat?) -> StyledString {
     var new = self
     new.style.tailIndent = tailIndent
     return new
   }
 
-  public func withLineHeightMultiple(lineHeightMultiple: CGFloat?) -> StyledString {
+  public func withLineHeightMultiple(_ lineHeightMultiple: CGFloat?) -> StyledString {
     var new = self
     new.style.lineHeightMultiple = lineHeightMultiple
     return new
   }
 
-  public func withMaximumLineHeight(maximumLineHeight: CGFloat?) -> StyledString {
+  public func withMaximumLineHeight(_ maximumLineHeight: CGFloat?) -> StyledString {
     var new = self
     new.style.maximumLineHeight = maximumLineHeight
     return new
   }
 
-  public func withMinimumLineHeight(minimumLineHeight: CGFloat?) -> StyledString {
+  public func withMinimumLineHeight(_ minimumLineHeight: CGFloat?) -> StyledString {
     var new = self
     new.style.minimumLineHeight = minimumLineHeight
     return new
   }
 
-  public func withLineSpacing(lineSpacing: CGFloat?) -> StyledString {
+  public func withLineSpacing(_ lineSpacing: CGFloat?) -> StyledString {
     var new = self
     new.style.lineSpacing = lineSpacing
     return new
   }
 
-  public func withParagraphSpacing(paragraphSpacing: CGFloat?) -> StyledString {
+  public func withParagraphSpacing(_ paragraphSpacing: CGFloat?) -> StyledString {
     var new = self
     new.style.paragraphSpacing = paragraphSpacing
     return new
   }
 
-  public func withParagraphSpacingBefore(paragraphSpacingBefore: CGFloat?) -> StyledString {
+  public func withParagraphSpacingBefore(_ paragraphSpacingBefore: CGFloat?) -> StyledString {
     var new = self
     new.style.paragraphSpacingBefore = paragraphSpacingBefore
     return new
   }
 
-  public func withDefaultTabInterval(defaultTabInterval: CGFloat?) -> StyledString {
+  public func withDefaultTabInterval(_ defaultTabInterval: CGFloat?) -> StyledString {
     var new = self
     new.style.defaultTabInterval = defaultTabInterval
     return new
   }
 
-  public func withTabStops(tabStops: [NSTextTab]?) -> StyledString {
+  public func withTabStops(_ tabStops: [NSTextTab]?) -> StyledString {
     var new = self
     new.style.tabStops = tabStops
     return new
   }
 
-  public func withLineBreakMode(lineBreakMode: NSLineBreakMode?) -> StyledString {
+  public func withLineBreakMode(_ lineBreakMode: NSLineBreakMode?) -> StyledString {
     var new = self
     new.style.lineBreakMode = lineBreakMode
     return new
   }
 
-  public func withHyphenationFactor(hyphenationFactor: Float?) -> StyledString {
+  public func withHyphenationFactor(_ hyphenationFactor: Float?) -> StyledString {
     var new = self
     new.style.hyphenationFactor = hyphenationFactor
     return new
   }
 
-  public func withBaseWritingDirection(writingDirection: NSWritingDirection?) -> StyledString {
+  public func withBaseWritingDirection(_ writingDirection: NSWritingDirection?) -> StyledString {
     var new = self
     new.style.baseWritingDirection = writingDirection
     return new
@@ -513,28 +522,26 @@ public extension StyledString {
 // MARK: StyledString Operators
 
 public func + (lhs: StyledString, rhs: StyledString) -> StyledString {
-  return StyledString(node: .Binary(lhs, rhs))
+  return StyledString(node: .binary(lhs, rhs))
 }
 
 // MARK: SequenceType Additions
 
-extension SequenceType where Generator.Element == StyledString {
+extension Sequence where Iterator.Element == StyledString {
 
   /// Interpose the `separator` between elements of `self`, then concatenate
   /// the result.  For example:
   ///
   ///     ["foo", "bar", "baz"].joinWithSeparator("-|-") // "foo-|-bar-|-baz"
-  @warn_unused_result
-  public func joinWithSeparator(separator: String) -> StyledString {
-    return self.joinWithSeparator(StyledString(separator))
+  public func joined(separator: String) -> StyledString {
+    return self.joined(separator: StyledString(separator))
   }
 
   /// Interpose the `separator` between elements of `self`, then concatenate
   /// the result.  For example:
   ///
   ///     ["foo", "bar", "baz"].joinWithSeparator("-|-") // "foo-|-bar-|-baz"
-  @warn_unused_result
-  public func joinWithSeparator(separator: StyledString) -> StyledString {
+  public func joined(separator: StyledString) -> StyledString {
     var result = StyledString("")
 
     var first = true
