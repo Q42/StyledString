@@ -21,18 +21,18 @@ extension ViewController {
       light("Xcode") + thin(".swift"),
       light("R") + thin(".swift"),
     ]
-    .joinWithSeparator("\n")
+    .joined(separator: "\n")
   }
 
-  private func thin(str: String) -> StyledString {
+  private func thin(_ str: String) -> StyledString {
     return StyledString(str)
       .withForegroundColor(UIColor(red: 0.204, green: 0.204, blue: 0.204, alpha: 1.0))
-      .withFont(UIFont.systemFontOfSize(72, weight: UIFontWeightThin))
+      .withFont(.systemFont(ofSize: 72, weight: UIFontWeightThin))
   }
 
-  private func light(str: String) -> StyledString {
+  private func light(_ str: String) -> StyledString {
     return StyledString(str)
-      .withForegroundColor(UIColor.blackColor())
-      .withFont(UIFont.systemFontOfSize(72, weight: UIFontWeightLight))
+      .withForegroundColor(.black())
+      .withFont(.systemFont(ofSize: 72, weight: UIFontWeightLight))
   }
 }

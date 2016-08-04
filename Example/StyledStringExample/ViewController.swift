@@ -21,34 +21,34 @@ class ViewController: UIViewController {
     label2.attributedText = createWithMethods()
   }
 
-  private func createWithMethods() -> NSAttributedString {
+  private func createWithMethods() -> AttributedString {
     let hello = StyledString("Hello")
       .withUnderline()
-      .withForegroundColor(.blueColor())
+      .withForegroundColor(.blue())
     let world = StyledString("world")
       .withStrikethrough()
-      .withForegroundColor(.redColor())
+      .withForegroundColor(.red())
 
     return (hello + " " + world)
       .withShadow()
-      .withFont(.boldSystemFontOfSize(50))
-      .NSAttributedString
+      .withFont(.boldSystemFont(ofSize: 50))
+      .attributedString
   }
 
-  private func createWithVars() -> NSAttributedString {
+  private func createWithVars() -> AttributedString {
     var hello = StyledString("Hello")
-    hello.underlineStyle = .StyleSingle
-    hello.foregroundColor = .blueColor()
+    hello.underlineStyle = .styleSingle
+    hello.foregroundColor = .blue()
 
     var world = StyledString("world")
-    world.strikethroughStyle = .StyleSingle
-    world.foregroundColor = .redColor()
+    world.strikethroughStyle = .styleSingle
+    world.foregroundColor = .red()
 
     var helloWord = (hello + " " + world)
-    helloWord.shadowOffset = CGSizeMake(1, 1)
-    helloWord.font = .boldSystemFontOfSize(50)
+    helloWord.shadowOffset = CGSize(width: 1, height: 1)
+    helloWord.font = .boldSystemFont(ofSize: 50)
 
-    return helloWord.NSAttributedString
+    return helloWord.attributedString
   }
 
 
