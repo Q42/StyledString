@@ -15,7 +15,7 @@ private func ??=<T>(l: inout T?, val: @autoclosure () -> T?) {
 }
 
 extension Link {
-  init?(value: AnyObject?) {
+  init?(value: Any?) {
     if let string = value as? String {
       self = .text(string)
     } else if let url = value as? URL {
@@ -24,10 +24,10 @@ extension Link {
     return nil
   }
 
-  var value: AnyObject {
+  var value: Any {
     switch self {
-    case text(let value): return value
-    case url(let value): return value
+    case .text(let value): return value
+    case .url(let value): return value
     }
   }
 }
@@ -41,7 +41,7 @@ extension TextEffect {
   }
   var value: String {
     switch self {
-    case letterPress: return NSTextEffectLetterpressStyle
+    case .letterPress: return NSTextEffectLetterpressStyle
     }
   }
 }
@@ -93,7 +93,7 @@ extension StyledString {
     init() {
     }
 
-    init(attributes: [String: AnyObject]) {
+    init(attributes: [String: Any]) {
       font = attributes[NSFontAttributeName] as? UIFont
       foregroundColor = attributes[NSForegroundColorAttributeName] as? UIColor
       backgroundColor = attributes[NSBackgroundColorAttributeName] as? UIColor
@@ -198,8 +198,8 @@ extension StyledString {
       return result
     }
 
-    var attributes: [String: AnyObject] {
-      var attributes: [String: AnyObject] = [:]
+    var attributes: [String: Any] {
+      var attributes: [String: Any] = [:]
       if let font = font {
         attributes[NSFontAttributeName] = font
       }

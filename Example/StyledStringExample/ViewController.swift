@@ -21,13 +21,13 @@ class ViewController: UIViewController {
     label2.attributedText = createWithMethods()
   }
 
-  private func createWithMethods() -> AttributedString {
+  private func createWithMethods() -> NSAttributedString {
     let hello = StyledString("Hello")
       .withUnderline()
-      .withForegroundColor(.blue())
+      .withForegroundColor(.blue)
     let world = StyledString("world")
       .withStrikethrough()
-      .withForegroundColor(.red())
+      .withForegroundColor(.red)
 
     return (hello + " " + world)
       .withShadow()
@@ -35,14 +35,14 @@ class ViewController: UIViewController {
       .attributedString
   }
 
-  private func createWithVars() -> AttributedString {
+  private func createWithVars() -> NSAttributedString {
     var hello = StyledString("Hello")
     hello.underlineStyle = .styleSingle
-    hello.foregroundColor = .blue()
+    hello.foregroundColor = .blue
 
     var world = StyledString("world")
     world.strikethroughStyle = .styleSingle
-    world.foregroundColor = .red()
+    world.foregroundColor = .red
 
     var helloWord = (hello + " " + world)
     helloWord.shadowOffset = CGSize(width: 1, height: 1)
