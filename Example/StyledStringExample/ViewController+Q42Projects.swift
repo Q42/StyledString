@@ -32,7 +32,7 @@ extension ViewController {
 
   private func light(_ str: String) -> StyledString {
     return StyledString(str)
-      .with(foregroundColor: .black())
+      .with(foregroundColor: .black)
       .with(font: .systemFont(ofSize: 72, weight: UIFontWeightLight))
   }
 }

@@ -10,8 +10,8 @@ import Foundation
 import UIKit
 
 public struct StyledString {
-  private let node: StyleNode
-  private var style: Style = Style()
+  fileprivate let node: StyleNode
+  fileprivate var style: Style = Style()
 
   public init() {
     self.node = .unary("")
@@ -31,9 +31,9 @@ public struct StyledString {
   }
 }
 
-// MARK: StringLiteralConvertible
+// MARK: ExpressibleByStringLiteral
 
-extension StyledString: StringLiteralConvertible {
+extension StyledString: ExpressibleByStringLiteral {
   public typealias StringLiteralType = String
 
   public init(stringLiteral value: String) {
@@ -69,7 +69,7 @@ public enum Link {
 
 public extension StyledString {
 
-  public init(attributedString: AttributedString) {
+  public init(attributedString: NSAttributedString) {
 
     let range = NSRange(location: 0, length: attributedString.length)
     let nsString = attributedString.string as NSString
@@ -85,14 +85,14 @@ public extension StyledString {
     self.node = segments.joined(separator: "").node
   }
 
-  public var attributedString: AttributedString {
+  public var attributedString: NSAttributedString {
     return attributedString(parentStyle: style)
   }
 
-  private func attributedString(parentStyle: Style) -> AttributedString {
+  private func attributedString(parentStyle: Style) -> NSAttributedString {
     switch node {
     case let .unary(string):
-      return AttributedString(string: string, style: parentStyle)
+      return NSAttributedString(string: string, style: parentStyle)
 
     case let .binary(lhs, rhs):
       let las = lhs.attributedString(parentStyle: parentStyle.merge(lhs.style))
