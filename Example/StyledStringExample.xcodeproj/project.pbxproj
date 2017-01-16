@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		694C63D7FDCCF6F5D7AF1374 /* Pods_StyledStringExamplePods_StyledStringExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1C3F4A0BEDE05EA54F3C990 /* Pods_StyledStringExamplePods_StyledStringExample.framework */; };
+		CAE6C06530E25263D9278955 /* Pods_StyledStringExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A92472C7F63F0C2E105DE62F /* Pods_StyledStringExample.framework */; };
 		E228C9AE1C162BCC0013DCCF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E228C9AD1C162BCC0013DCCF /* AppDelegate.swift */; };
 		E228C9B01C162BCC0013DCCF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E228C9AF1C162BCC0013DCCF /* ViewController.swift */; };
 		E228C9B31C162BCC0013DCCF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E228C9B11C162BCC0013DCCF /* Main.storyboard */; };
@@ -18,9 +18,10 @@
 
 /* Begin PBXFileReference section */
 		04DF6A940AF91A183FE3041D /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		0545F7020DAF33037E78A34E /* Pods-StyledStringExamplePods-StyledStringExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StyledStringExamplePods-StyledStringExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-StyledStringExamplePods-StyledStringExample/Pods-StyledStringExamplePods-StyledStringExample.release.xcconfig"; sourceTree = "<group>"; };
+		17AA14EF5122091C6719B87E /* Pods-StyledStringExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StyledStringExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StyledStringExample/Pods-StyledStringExample.debug.xcconfig"; sourceTree = "<group>"; };
+		A92472C7F63F0C2E105DE62F /* Pods_StyledStringExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StyledStringExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1C3F4A0BEDE05EA54F3C990 /* Pods_StyledStringExamplePods_StyledStringExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StyledStringExamplePods_StyledStringExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E18641B43533CE8F9E33177E /* Pods-StyledStringExamplePods-StyledStringExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StyledStringExamplePods-StyledStringExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StyledStringExamplePods-StyledStringExample/Pods-StyledStringExamplePods-StyledStringExample.debug.xcconfig"; sourceTree = "<group>"; };
+		D4E362FEE78223648112D616 /* Pods-StyledStringExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StyledStringExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-StyledStringExample/Pods-StyledStringExample.release.xcconfig"; sourceTree = "<group>"; };
 		E228C9AA1C162BCC0013DCCF /* StyledStringExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StyledStringExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E228C9AD1C162BCC0013DCCF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E228C9AF1C162BCC0013DCCF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -36,7 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				694C63D7FDCCF6F5D7AF1374 /* Pods_StyledStringExamplePods_StyledStringExample.framework in Frameworks */,
+				CAE6C06530E25263D9278955 /* Pods_StyledStringExample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -48,6 +49,7 @@
 			children = (
 				04DF6A940AF91A183FE3041D /* Pods.framework */,
 				B1C3F4A0BEDE05EA54F3C990 /* Pods_StyledStringExamplePods_StyledStringExample.framework */,
+				A92472C7F63F0C2E105DE62F /* Pods_StyledStringExample.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -55,8 +57,8 @@
 		8A85B7D09BAD7DFE1151C460 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				E18641B43533CE8F9E33177E /* Pods-StyledStringExamplePods-StyledStringExample.debug.xcconfig */,
-				0545F7020DAF33037E78A34E /* Pods-StyledStringExamplePods-StyledStringExample.release.xcconfig */,
+				17AA14EF5122091C6719B87E /* Pods-StyledStringExample.debug.xcconfig */,
+				D4E362FEE78223648112D616 /* Pods-StyledStringExample.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -123,7 +125,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0710;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Tom Lokhorst";
 				TargetAttributes = {
 					E228C9A91C162BCC0013DCCF = {
@@ -176,7 +178,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StyledStringExamplePods-StyledStringExample/Pods-StyledStringExamplePods-StyledStringExample-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StyledStringExample/Pods-StyledStringExample-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		EA85F864EF0AF53B36DE6CBD /* [CP] Check Pods Manifest.lock */ = {
@@ -206,7 +208,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StyledStringExamplePods-StyledStringExample/Pods-StyledStringExamplePods-StyledStringExample-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StyledStringExample/Pods-StyledStringExample-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -257,8 +259,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -302,8 +306,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -329,9 +335,8 @@
 		};
 		E228C9BD1C162BCC0013DCCF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E18641B43533CE8F9E33177E /* Pods-StyledStringExamplePods-StyledStringExample.debug.xcconfig */;
+			baseConfigurationReference = 17AA14EF5122091C6719B87E /* Pods-StyledStringExample.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = StyledStringExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -343,9 +348,8 @@
 		};
 		E228C9BE1C162BCC0013DCCF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0545F7020DAF33037E78A34E /* Pods-StyledStringExamplePods-StyledStringExample.release.xcconfig */;
+			baseConfigurationReference = D4E362FEE78223648112D616 /* Pods-StyledStringExample.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = StyledStringExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

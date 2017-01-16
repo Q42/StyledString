@@ -92,7 +92,7 @@ public extension StyledString {
   private func attributedString(parentStyle: Style) -> NSAttributedString {
     switch node {
     case let .unary(string):
-      return NSAttributedString(string: string, style: parentStyle)
+      return Foundation.NSAttributedString(string: string, style: parentStyle)
 
     case let .binary(lhs, rhs):
       let las = lhs.attributedString(parentStyle: parentStyle.merge(lhs.style))

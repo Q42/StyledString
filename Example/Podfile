@@ -1,21 +1,8 @@
 source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
+use_frameworks!
 
-abstract_target 'StyledStringExamplePods' do
-  use_frameworks!
-  pod 'StyledString', :path => '../'
+pod 'StyledString', :path => '../'
 
-  target :StyledStringExample do
-    # This Pods library links with a target in another project.
-    project 'StyledStringExample'
-  end
-end
-
-post_install do |installer|
-  installer.pods_project.targets.each do |target|
-    target.build_configurations.each do |config|
-      config.build_settings['SWIFT_VERSION'] = '3.0'
-    end
-  end
-end
+target 'StyledStringExample'
 

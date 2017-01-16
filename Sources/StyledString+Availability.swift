@@ -10,11 +10,6 @@ import Foundation
 // Swift 3 renames
 public extension StyledString {
 
-  @available(*, unavailable, renamed: "init(attributedString:)")
-  public init(NSAttributedString: Foundation.NSAttributedString) {
-    fatalError()
-  }
-
   @available(*, unavailable, renamed: "attributedString")
   public var NSAttributedString: Foundation.NSAttributedString {
     fatalError()
@@ -50,12 +45,12 @@ public extension StyledString {
   }
 
   @available(*, unavailable, renamed: "with(underlineStyle:color:)")
-  public func withUnderline(_ style: NSUnderlineStyle? = .StyleSingle, color: UIColor? = nil) -> StyledString {
+  public func withUnderline(_ style: NSUnderlineStyle? = .styleSingle, color: UIColor? = nil) -> StyledString {
     fatalError()
   }
 
   @available(*, unavailable, renamed: "with(strikethroughStyle:color:)")
-  public func withStrikethrough(_ style: NSUnderlineStyle? = .StyleSingle, color: UIColor? = nil) -> StyledString {
+  public func withStrikethrough(_ style: NSUnderlineStyle? = .styleSingle, color: UIColor? = nil) -> StyledString {
     fatalError()
   }
 
@@ -65,12 +60,12 @@ public extension StyledString {
   }
 
   @available(*, unavailable, renamed: "with(shadowOffset:blurRadius:color:)")
-  public func withShadow(_ offset: CGSize? = CGSizeMake(1, 1), blurRadius: CGFloat? = 0, color: UIColor? = nil) -> StyledString {
+  public func withShadow(_ offset: CGSize? = CGSize(width: 1, height: 1), blurRadius: CGFloat? = 0, color: UIColor? = nil) -> StyledString {
     fatalError()
   }
 
   @available(*, unavailable, renamed: "with(textEffect:)")
-  public func withTextEffect(_ effect: TextEffect? = .LetterPress) -> StyledString {
+  public func withTextEffect(_ effect: TextEffect? = .letterPress) -> StyledString {
     fatalError()
   }
 
@@ -191,7 +186,7 @@ public extension StyledString {
 
 }
 
-extension SequenceType where Generator.Element == StyledString {
+extension Sequence where Iterator.Element == StyledString {
 
   @available(*, unavailable, renamed: "joined(separator:)")
   public func joinWithSeparator(_ separator: String) -> StyledString {
@@ -204,4 +199,3 @@ extension SequenceType where Generator.Element == StyledString {
   }
 
 }
-
