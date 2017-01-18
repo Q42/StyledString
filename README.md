@@ -8,17 +8,18 @@
 ## Example
 
 ```swift
-let hello = StyledString(string: "Hello")
+let hello = StyledString("Hello")
   .withUnderline()
-  .withColor(UIColor.blueColor())
-let world = StyledString(string: "world")
+  .with(foregroundColor: .blue)
+
+let world = StyledString("world")
   .withStrikethrough()
-  .withColor(UIColor.redColor())
+  .with(foregroundColor: .red)
 
 label.attributedText = (hello + " " + world)
   .withShadow()
-  .withFont(UIFont.boldSystemFontOfSize(50))
-  .NSAttributedString()
+  .with(font: .boldSystemFont(ofSize: 50))
+  .attributedString
 ```
 
 Result:
