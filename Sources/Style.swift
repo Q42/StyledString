@@ -9,8 +9,8 @@
 import Foundation
 import UIKit
 
-infix operator ??= { }
-private func ??=<T>(l: inout T?, val: @autoclosure () -> T?) {
+infix operator ??=
+private func ??= <T>(l: inout T?, val: @autoclosure () -> T?) {
   l = l ?? val()
 }
 
