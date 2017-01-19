@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "StyledString"
-  s.version          = "0.4.1"
+  s.version          = "0.4.2"
   s.summary          = "String styling in Swift"
 
   s.description      = <<-DESC
