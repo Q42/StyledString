@@ -176,16 +176,19 @@ public extension StyledString {
     set { style.strokeColor = newValue }
   }
 
+  @available(iOS 7.0, *)
   var shadowOffset: CGSize?  {
     get { return style.shadowOffset }
     set { style.shadowOffset = newValue }
   }
 
+  @available(iOS 7.0, *)
   var shadowBlurRadius: CGFloat?  {
     get { return style.shadowBlurRadius }
     set { style.shadowBlurRadius = newValue }
   }
 
+  @available(iOS 7.0, *)
   var shadowColor: UIColor?  {
     get { return style.shadowColor }
     set { style.shadowColor = newValue }
@@ -196,6 +199,7 @@ public extension StyledString {
     set { style.textEffect = newValue }
   }
 
+  @available(iOS 7, *)
   var attachment: NSTextAttachment? {
     get { return style.attachment }
     set { style.attachment = newValue }

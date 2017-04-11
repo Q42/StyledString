@@ -46,6 +46,18 @@ extension TextEffect {
   }
 }
 
+#if !os(iOS)
+  @available(iOS, unavailable)
+  public class NSTextAttachment {}
+
+  @available(iOS, unavailable)
+  class NSShadow {
+    var shadowOffset: CGSize!
+    var shadowBlurRadius: CGFloat!
+    var shadowColor: Any!
+  }
+#endif
+
 extension StyledString {
   struct Style {
     var attributes: [String: Any] = [:]
@@ -129,6 +141,7 @@ extension StyledString {
     }
 
     // Shadow
+    @available(iOS 7.0, *)
     var shadowOffset: CGSize? {
       get { return (attributes[NSShadowAttributeName] as? NSShadow)?.shadowOffset }
       set {
@@ -137,6 +150,7 @@ extension StyledString {
         attributes[NSShadowAttributeName] = shadow
       }
     }
+    @available(iOS 7.0, *)
     var shadowBlurRadius: CGFloat? {
       get { return (attributes[NSShadowAttributeName] as? NSShadow)?.shadowBlurRadius }
       set {
@@ -145,6 +159,7 @@ extension StyledString {
         attributes[NSShadowAttributeName] = shadow
       }
     }
+    @available(iOS 7.0, *)
     var shadowColor: UIColor? {
       get { return (attributes[NSShadowAttributeName] as? NSShadow)?.shadowColor as? UIColor }
       set {
