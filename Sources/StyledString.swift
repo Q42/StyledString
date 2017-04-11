@@ -85,8 +85,13 @@ public extension StyledString {
     self.node = segments.joined(separator: "").node
   }
 
-  public var attributedString: NSAttributedString {
+  public var nsAttributedString: NSAttributedString {
     return attributedString(parentStyle: style)
+  }
+
+  @available(*, unavailable, renamed: "nsAttributedString")
+  public var attributedString: NSAttributedString {
+    fatalError()
   }
 
   private func attributedString(parentStyle: Style) -> NSAttributedString {
@@ -106,7 +111,7 @@ public extension StyledString {
 // MARK: Equabtale
 
 public func == (lhs: StyledString, rhs: StyledString) -> Bool {
-  return lhs.attributedString.isEqual(to: rhs.attributedString)
+  return lhs.nsAttributedString.isEqual(to: rhs.nsAttributedString)
 }
 
 extension StyledString: Equatable {
