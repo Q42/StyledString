@@ -52,228 +52,228 @@ extension StyledString {
     var attributes: [NSAttributedStringKey: Any] = [:]
 
     var font: UIFont? {
-      get { return attributes[NSAttributedStringKey.font] as? UIFont }
-      set { attributes[NSAttributedStringKey.font] = newValue }
+      get { return attributes[.font] as? UIFont }
+      set { attributes[.font] = newValue }
     }
     var foregroundColor: UIColor? {
-      get { return attributes[NSAttributedStringKey.foregroundColor] as? UIColor }
-      set { attributes[NSAttributedStringKey.foregroundColor] = newValue }
+      get { return attributes[.foregroundColor] as? UIColor }
+      set { attributes[.foregroundColor] = newValue }
     }
     var backgroundColor: UIColor? {
-      get { return attributes[NSAttributedStringKey.backgroundColor] as? UIColor }
-      set { attributes[NSAttributedStringKey.backgroundColor] = newValue }
+      get { return attributes[.backgroundColor] as? UIColor }
+      set { attributes[.backgroundColor] = newValue }
     }
     var ligature: Bool? {
-      get { return attributes[NSAttributedStringKey.ligature] as? Bool }
-      set { attributes[NSAttributedStringKey.ligature] = newValue }
+      get { return attributes[.ligature] as? Bool }
+      set { attributes[.ligature] = newValue }
     }
     var kern: Float? {
-      get { return attributes[NSAttributedStringKey.kern] as? Float }
-      set { attributes[NSAttributedStringKey.kern] = newValue }
+      get { return attributes[.kern] as? Float }
+      set { attributes[.kern] = newValue }
     }
     var strikethroughStyle: NSUnderlineStyle? {
-      get { return (attributes[NSAttributedStringKey.strikethroughStyle] as? Int).flatMap(NSUnderlineStyle.init) }
-      set { attributes[NSAttributedStringKey.strikethroughStyle] = newValue?.rawValue }
+      get { return (attributes[.strikethroughStyle] as? Int).flatMap(NSUnderlineStyle.init) }
+      set { attributes[.strikethroughStyle] = newValue?.rawValue }
     }
     var strikethroughColor: UIColor? {
-      get { return attributes[NSAttributedStringKey.strikethroughColor] as? UIColor }
-      set { attributes[NSAttributedStringKey.strikethroughColor] = newValue }
+      get { return attributes[.strikethroughColor] as? UIColor }
+      set { attributes[.strikethroughColor] = newValue }
     }
     var underlineStyle: NSUnderlineStyle? {
-      get { return (attributes[NSAttributedStringKey.underlineStyle] as? Int).flatMap(NSUnderlineStyle.init) }
-      set { attributes[NSAttributedStringKey.underlineStyle] = newValue?.rawValue }
+      get { return (attributes[.underlineStyle] as? Int).flatMap(NSUnderlineStyle.init) }
+      set { attributes[.underlineStyle] = newValue?.rawValue }
     }
     var underlineColor: UIColor? {
-      get { return attributes[NSAttributedStringKey.underlineColor] as? UIColor }
-      set { attributes[NSAttributedStringKey.underlineColor] = newValue }
+      get { return attributes[.underlineColor] as? UIColor }
+      set { attributes[.underlineColor] = newValue }
     }
     var strokeWidth: Float? {
-      get { return attributes[NSAttributedStringKey.strokeWidth] as? Float }
-      set { attributes[NSAttributedStringKey.strokeWidth] = newValue }
+      get { return attributes[.strokeWidth] as? Float }
+      set { attributes[.strokeWidth] = newValue }
     }
     var strokeColor: UIColor? {
-      get { return attributes[NSAttributedStringKey.strokeColor] as? UIColor }
-      set { attributes[NSAttributedStringKey.strokeColor] = newValue }
+      get { return attributes[.strokeColor] as? UIColor }
+      set { attributes[.strokeColor] = newValue }
     }
     var textEffect: TextEffect? {
-      get { return (attributes[NSAttributedStringKey.textEffect] as? String).flatMap(TextEffect.init) }
-      set { attributes[NSAttributedStringKey.textEffect] = newValue?.rawValue }
+      get { return (attributes[.textEffect] as? String).flatMap(TextEffect.init) }
+      set { attributes[.textEffect] = newValue?.rawValue }
     }
     @available(iOS 7.0, *)
     var attachment: NSTextAttachment? {
-      get { return attributes[NSAttributedStringKey.attachment] as? NSTextAttachment }
-      set { attributes[NSAttributedStringKey.attachment] = newValue }
+      get { return attributes[.attachment] as? NSTextAttachment }
+      set { attributes[.attachment] = newValue }
     }
     var link: Link? {
-      get { return attributes[NSAttributedStringKey.link].flatMap(Link.init) }
-      set { attributes[NSAttributedStringKey.link] = newValue?.rawValue }
+      get { return attributes[.link].flatMap(Link.init) }
+      set { attributes[.link] = newValue?.rawValue }
     }
     var baselineOffset: Float? {
-      get { return attributes[NSAttributedStringKey.baselineOffset] as? Float }
-      set { attributes[NSAttributedStringKey.baselineOffset] = newValue }
+      get { return attributes[.baselineOffset] as? Float }
+      set { attributes[.baselineOffset] = newValue }
     }
     var obliqueness: Float? {
-      get { return attributes[NSAttributedStringKey.obliqueness] as? Float }
-      set { attributes[NSAttributedStringKey.obliqueness] = newValue }
+      get { return attributes[.obliqueness] as? Float }
+      set { attributes[.obliqueness] = newValue }
     }
     var expansion: Float? {
-      get { return attributes[NSAttributedStringKey.expansion] as? Float }
-      set { attributes[NSAttributedStringKey.expansion] = newValue }
+      get { return attributes[.expansion] as? Float }
+      set { attributes[.expansion] = newValue }
     }
     var writingDirection: [Int]? {
-      get { return attributes[NSAttributedStringKey.writingDirection] as? [Int] }
-      set { attributes[NSAttributedStringKey.writingDirection] = newValue }
+      get { return attributes[.writingDirection] as? [Int] }
+      set { attributes[.writingDirection] = newValue }
     }
     var verticalGlyphForm: Bool? {
-      get { return attributes[NSAttributedStringKey.verticalGlyphForm] as? Bool }
-      set { attributes[NSAttributedStringKey.verticalGlyphForm] = newValue }
+      get { return attributes[.verticalGlyphForm] as? Bool }
+      set { attributes[.verticalGlyphForm] = newValue }
     }
 
     // Shadow
     var shadowOffset: CGSize? {
-      get { return (attributes[NSAttributedStringKey.shadow] as? NSShadow)?.shadowOffset }
+      get { return (attributes[.shadow] as? NSShadow)?.shadowOffset }
       set {
-        let shadow = attributes[NSAttributedStringKey.shadow] as? NSShadow ?? NSShadow()
+        let shadow = attributes[.shadow] as? NSShadow ?? NSShadow()
         shadow.shadowOffset = newValue ?? NSShadow().shadowOffset
-        attributes[NSAttributedStringKey.shadow] = shadow
+        attributes[.shadow] = shadow
       }
     }
     var shadowBlurRadius: CGFloat? {
-      get { return (attributes[NSAttributedStringKey.shadow] as? NSShadow)?.shadowBlurRadius }
+      get { return (attributes[.shadow] as? NSShadow)?.shadowBlurRadius }
       set {
-        let shadow = attributes[NSAttributedStringKey.shadow] as? NSShadow ?? NSShadow()
+        let shadow = attributes[.shadow] as? NSShadow ?? NSShadow()
         shadow.shadowBlurRadius = newValue ?? NSShadow().shadowBlurRadius
-        attributes[NSAttributedStringKey.shadow] = shadow
+        attributes[.shadow] = shadow
       }
     }
     var shadowColor: UIColor? {
-      get { return (attributes[NSAttributedStringKey.shadow] as? NSShadow)?.shadowColor as? UIColor }
+      get { return (attributes[.shadow] as? NSShadow)?.shadowColor as? UIColor }
       set {
-        let shadow = attributes[NSAttributedStringKey.shadow] as? NSShadow ?? NSShadow()
+        let shadow = attributes[.shadow] as? NSShadow ?? NSShadow()
         shadow.shadowColor = newValue ?? NSShadow().shadowColor
-        attributes[NSAttributedStringKey.shadow] = shadow
+        attributes[.shadow] = shadow
       }
     }
 
     // Paragraph Style
     var alignment: NSTextAlignment? {
-      get { return (attributes[NSAttributedStringKey.paragraphStyle] as? NSParagraphStyle)?.alignment }
+      get { return (attributes[.paragraphStyle] as? NSParagraphStyle)?.alignment }
       set {
-        let style = attributes[NSAttributedStringKey.paragraphStyle] as? NSMutableParagraphStyle ?? NSMutableParagraphStyle()
+        let style = attributes[.paragraphStyle] as? NSMutableParagraphStyle ?? NSMutableParagraphStyle()
         style.alignment = newValue ?? NSParagraphStyle().alignment
-        attributes[NSAttributedStringKey.paragraphStyle] = style
+        attributes[.paragraphStyle] = style
       }
     }
     var firstLineHeadIndent: CGFloat? {
-      get { return (attributes[NSAttributedStringKey.paragraphStyle] as? NSParagraphStyle)?.firstLineHeadIndent }
+      get { return (attributes[.paragraphStyle] as? NSParagraphStyle)?.firstLineHeadIndent }
       set {
-        let style = attributes[NSAttributedStringKey.paragraphStyle] as? NSMutableParagraphStyle ?? NSMutableParagraphStyle()
+        let style = attributes[.paragraphStyle] as? NSMutableParagraphStyle ?? NSMutableParagraphStyle()
         style.firstLineHeadIndent = newValue ?? NSParagraphStyle().firstLineHeadIndent
-        attributes[NSAttributedStringKey.paragraphStyle] = style
+        attributes[.paragraphStyle] = style
       }
     }
     var headIndent: CGFloat? {
-      get { return (attributes[NSAttributedStringKey.paragraphStyle] as? NSParagraphStyle)?.headIndent }
+      get { return (attributes[.paragraphStyle] as? NSParagraphStyle)?.headIndent }
       set {
-        let style = attributes[NSAttributedStringKey.paragraphStyle] as? NSMutableParagraphStyle ?? NSMutableParagraphStyle()
+        let style = attributes[.paragraphStyle] as? NSMutableParagraphStyle ?? NSMutableParagraphStyle()
         style.headIndent = newValue ?? NSParagraphStyle().headIndent
-        attributes[NSAttributedStringKey.paragraphStyle] = style
+        attributes[.paragraphStyle] = style
       }
     }
     var tailIndent: CGFloat? {
-      get { return (attributes[NSAttributedStringKey.paragraphStyle] as? NSParagraphStyle)?.tailIndent }
+      get { return (attributes[.paragraphStyle] as? NSParagraphStyle)?.tailIndent }
       set {
-        let style = attributes[NSAttributedStringKey.paragraphStyle] as? NSMutableParagraphStyle ?? NSMutableParagraphStyle()
+        let style = attributes[.paragraphStyle] as? NSMutableParagraphStyle ?? NSMutableParagraphStyle()
         style.tailIndent = newValue ?? NSParagraphStyle().tailIndent
-        attributes[NSAttributedStringKey.paragraphStyle] = style
+        attributes[.paragraphStyle] = style
       }
     }
     var lineHeightMultiple: CGFloat? {
-      get { return (attributes[NSAttributedStringKey.paragraphStyle] as? NSParagraphStyle)?.lineHeightMultiple }
+      get { return (attributes[.paragraphStyle] as? NSParagraphStyle)?.lineHeightMultiple }
       set {
-        let style = attributes[NSAttributedStringKey.paragraphStyle] as? NSMutableParagraphStyle ?? NSMutableParagraphStyle()
+        let style = attributes[.paragraphStyle] as? NSMutableParagraphStyle ?? NSMutableParagraphStyle()
         style.lineHeightMultiple = newValue ?? NSParagraphStyle().lineHeightMultiple
-        attributes[NSAttributedStringKey.paragraphStyle] = style
+        attributes[.paragraphStyle] = style
       }
     }
     var maximumLineHeight: CGFloat? {
-      get { return (attributes[NSAttributedStringKey.paragraphStyle] as? NSParagraphStyle)?.maximumLineHeight }
+      get { return (attributes[.paragraphStyle] as? NSParagraphStyle)?.maximumLineHeight }
       set {
-        let style = attributes[NSAttributedStringKey.paragraphStyle] as? NSMutableParagraphStyle ?? NSMutableParagraphStyle()
+        let style = attributes[.paragraphStyle] as? NSMutableParagraphStyle ?? NSMutableParagraphStyle()
         style.maximumLineHeight = newValue ?? NSParagraphStyle().maximumLineHeight
-        attributes[NSAttributedStringKey.paragraphStyle] = style
+        attributes[.paragraphStyle] = style
       }
     }
     var minimumLineHeight: CGFloat? {
-      get { return (attributes[NSAttributedStringKey.paragraphStyle] as? NSParagraphStyle)?.minimumLineHeight }
+      get { return (attributes[.paragraphStyle] as? NSParagraphStyle)?.minimumLineHeight }
       set {
-        let style = attributes[NSAttributedStringKey.paragraphStyle] as? NSMutableParagraphStyle ?? NSMutableParagraphStyle()
+        let style = attributes[.paragraphStyle] as? NSMutableParagraphStyle ?? NSMutableParagraphStyle()
         style.minimumLineHeight = newValue ?? NSParagraphStyle().minimumLineHeight
-        attributes[NSAttributedStringKey.paragraphStyle] = style
+        attributes[.paragraphStyle] = style
       }
     }
     var lineSpacing: CGFloat? {
-      get { return (attributes[NSAttributedStringKey.paragraphStyle] as? NSParagraphStyle)?.lineSpacing }
+      get { return (attributes[.paragraphStyle] as? NSParagraphStyle)?.lineSpacing }
       set {
-        let style = attributes[NSAttributedStringKey.paragraphStyle] as? NSMutableParagraphStyle ?? NSMutableParagraphStyle()
+        let style = attributes[.paragraphStyle] as? NSMutableParagraphStyle ?? NSMutableParagraphStyle()
         style.lineSpacing = newValue ?? NSParagraphStyle().lineSpacing
-        attributes[NSAttributedStringKey.paragraphStyle] = style
+        attributes[.paragraphStyle] = style
       }
     }
     var paragraphSpacing: CGFloat? {
-      get { return (attributes[NSAttributedStringKey.paragraphStyle] as? NSParagraphStyle)?.paragraphSpacing }
+      get { return (attributes[.paragraphStyle] as? NSParagraphStyle)?.paragraphSpacing }
       set {
-        let style = attributes[NSAttributedStringKey.paragraphStyle] as? NSMutableParagraphStyle ?? NSMutableParagraphStyle()
+        let style = attributes[.paragraphStyle] as? NSMutableParagraphStyle ?? NSMutableParagraphStyle()
         style.paragraphSpacing = newValue ?? NSParagraphStyle().paragraphSpacing
-        attributes[NSAttributedStringKey.paragraphStyle] = style
+        attributes[.paragraphStyle] = style
       }
     }
     var paragraphSpacingBefore: CGFloat? {
-      get { return (attributes[NSAttributedStringKey.paragraphStyle] as? NSParagraphStyle)?.paragraphSpacingBefore }
+      get { return (attributes[.paragraphStyle] as? NSParagraphStyle)?.paragraphSpacingBefore }
       set {
-        let style = attributes[NSAttributedStringKey.paragraphStyle] as? NSMutableParagraphStyle ?? NSMutableParagraphStyle()
+        let style = attributes[.paragraphStyle] as? NSMutableParagraphStyle ?? NSMutableParagraphStyle()
         style.paragraphSpacingBefore = newValue ?? NSParagraphStyle().paragraphSpacingBefore
-        attributes[NSAttributedStringKey.paragraphStyle] = style
+        attributes[.paragraphStyle] = style
       }
     }
     var tabStops: [NSTextTab]? {
-      get { return (attributes[NSAttributedStringKey.paragraphStyle] as? NSParagraphStyle)?.tabStops }
+      get { return (attributes[.paragraphStyle] as? NSParagraphStyle)?.tabStops }
       set {
-        let style = attributes[NSAttributedStringKey.paragraphStyle] as? NSMutableParagraphStyle ?? NSMutableParagraphStyle()
+        let style = attributes[.paragraphStyle] as? NSMutableParagraphStyle ?? NSMutableParagraphStyle()
         style.tabStops = newValue ?? NSParagraphStyle().tabStops
-        attributes[NSAttributedStringKey.paragraphStyle] = style
+        attributes[.paragraphStyle] = style
       }
     }
     var defaultTabInterval: CGFloat? {
-      get { return (attributes[NSAttributedStringKey.paragraphStyle] as? NSParagraphStyle)?.defaultTabInterval }
+      get { return (attributes[.paragraphStyle] as? NSParagraphStyle)?.defaultTabInterval }
       set {
-        let style = attributes[NSAttributedStringKey.paragraphStyle] as? NSMutableParagraphStyle ?? NSMutableParagraphStyle()
+        let style = attributes[.paragraphStyle] as? NSMutableParagraphStyle ?? NSMutableParagraphStyle()
         style.defaultTabInterval = newValue ?? NSParagraphStyle().defaultTabInterval
-        attributes[NSAttributedStringKey.paragraphStyle] = style
+        attributes[.paragraphStyle] = style
       }
     }
     var lineBreakMode: NSLineBreakMode? {
-      get { return (attributes[NSAttributedStringKey.paragraphStyle] as? NSParagraphStyle)?.lineBreakMode }
+      get { return (attributes[.paragraphStyle] as? NSParagraphStyle)?.lineBreakMode }
       set {
-        let style = attributes[NSAttributedStringKey.paragraphStyle] as? NSMutableParagraphStyle ?? NSMutableParagraphStyle()
+        let style = attributes[.paragraphStyle] as? NSMutableParagraphStyle ?? NSMutableParagraphStyle()
         style.lineBreakMode = newValue ?? NSParagraphStyle().lineBreakMode
-        attributes[NSAttributedStringKey.paragraphStyle] = style
+        attributes[.paragraphStyle] = style
       }
     }
     var hyphenationFactor: Float? {
-      get { return (attributes[NSAttributedStringKey.paragraphStyle] as? NSParagraphStyle)?.hyphenationFactor }
+      get { return (attributes[.paragraphStyle] as? NSParagraphStyle)?.hyphenationFactor }
       set {
-        let style = attributes[NSAttributedStringKey.paragraphStyle] as? NSMutableParagraphStyle ?? NSMutableParagraphStyle()
+        let style = attributes[.paragraphStyle] as? NSMutableParagraphStyle ?? NSMutableParagraphStyle()
         style.hyphenationFactor = newValue ?? NSParagraphStyle().hyphenationFactor
-        attributes[NSAttributedStringKey.paragraphStyle] = style
+        attributes[.paragraphStyle] = style
       }
     }
     var baseWritingDirection: NSWritingDirection? {
-      get { return (attributes[NSAttributedStringKey.paragraphStyle] as? NSParagraphStyle)?.baseWritingDirection }
+      get { return (attributes[.paragraphStyle] as? NSParagraphStyle)?.baseWritingDirection }
       set {
-        let style = attributes[NSAttributedStringKey.paragraphStyle] as? NSMutableParagraphStyle ?? NSMutableParagraphStyle()
+        let style = attributes[.paragraphStyle] as? NSMutableParagraphStyle ?? NSMutableParagraphStyle()
         style.baseWritingDirection = newValue ?? NSParagraphStyle().baseWritingDirection
-        attributes[NSAttributedStringKey.paragraphStyle] = style
+        attributes[.paragraphStyle] = style
       }
     }
 
