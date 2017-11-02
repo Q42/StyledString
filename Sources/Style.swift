@@ -32,16 +32,16 @@ extension Link {
   }
 }
 
-extension TextEffect {
-  init?(value: String) {
-    switch value {
-    case NSTextEffectLetterpressStyle: self = .letterPress
+extension TextEffect: RawRepresentable {
+  public init?(rawValue: String) {
+    switch rawValue {
+    case NSAttributedString.TextEffectStyle.letterpressStyle.rawValue: self = .letterPress
     default: return nil
     }
   }
-  var value: String {
+  public var rawValue: String {
     switch self {
-    case .letterPress: return NSTextEffectLetterpressStyle
+    case .letterPress: return NSAttributedString.TextEffectStyle.letterpressStyle.rawValue
     }
   }
 }
@@ -93,48 +93,48 @@ extension StyledString {
     init() {
     }
 
-    init(attributes: [String: Any]) {
-      font = attributes[NSFontAttributeName] as? UIFont
-      foregroundColor = attributes[NSForegroundColorAttributeName] as? UIColor
-      backgroundColor = attributes[NSBackgroundColorAttributeName] as? UIColor
-      ligature = attributes[NSBackgroundColorAttributeName] as? Bool
-      kern = attributes[NSKernAttributeName] as? Float
-      if let rawValue = attributes[NSStrikethroughStyleAttributeName] as? Int {
+    init(attributes: [NSAttributedStringKey: Any]) {
+      font = attributes[NSAttributedStringKey.font] as? UIFont
+      foregroundColor = attributes[NSAttributedStringKey.foregroundColor] as? UIColor
+      backgroundColor = attributes[NSAttributedStringKey.backgroundColor] as? UIColor
+      ligature = attributes[NSAttributedStringKey.backgroundColor] as? Bool
+      kern = attributes[NSAttributedStringKey.kern] as? Float
+      if let rawValue = attributes[NSAttributedStringKey.strikethroughStyle] as? Int {
         strikethroughStyle = NSUnderlineStyle(rawValue: rawValue)
       }
-      strikethroughColor = attributes[NSStrikethroughColorAttributeName] as? UIColor
-      if let rawValue = attributes[NSUnderlineStyleAttributeName] as? Int {
+      strikethroughColor = attributes[NSAttributedStringKey.strikethroughColor] as? UIColor
+      if let rawValue = attributes[NSAttributedStringKey.underlineStyle] as? Int {
         underlineStyle = NSUnderlineStyle(rawValue: rawValue)
       }
-      underlineColor = attributes[NSUnderlineColorAttributeName] as? UIColor
-      strokeWidth = attributes[NSStrokeWidthAttributeName] as? Float
+      underlineColor = attributes[NSAttributedStringKey.underlineColor] as? UIColor
+      strokeWidth = attributes[NSAttributedStringKey.strokeWidth] as? Float
 
-      strokeColor = attributes[NSStrokeColorAttributeName] as? UIColor
+      strokeColor = attributes[NSAttributedStringKey.strokeColor] as? UIColor
 
-      if let rawValue = attributes[NSTextEffectAttributeName] as? String {
-        textEffect = TextEffect(value: rawValue)
+      if let rawValue = attributes[NSAttributedStringKey.textEffect] as? String {
+        textEffect = TextEffect(rawValue: rawValue)
       }
 
-      attachment = attributes[NSAttachmentAttributeName] as? NSTextAttachment
+      attachment = attributes[NSAttributedStringKey.attachment] as? NSTextAttachment
 
-      link = Link(value: attributes[NSLinkAttributeName])
+      link = Link(value: attributes[NSAttributedStringKey.link])
 
-      baselineOffset = attributes[NSBaselineOffsetAttributeName] as? Float
-      obliqueness = attributes[NSObliquenessAttributeName] as? Float
-      expansion = attributes[NSExpansionAttributeName] as? Float
+      baselineOffset = attributes[NSAttributedStringKey.baselineOffset] as? Float
+      obliqueness = attributes[NSAttributedStringKey.obliqueness] as? Float
+      expansion = attributes[NSAttributedStringKey.expansion] as? Float
 
-      writingDirection = attributes[NSWritingDirectionAttributeName] as? [Int]
-      verticalGlyphForm = attributes[NSVerticalGlyphFormAttributeName] as? Bool
+      writingDirection = attributes[NSAttributedStringKey.writingDirection] as? [Int]
+      verticalGlyphForm = attributes[NSAttributedStringKey.verticalGlyphForm] as? Bool
 
       // Shadow
-      if let shadow = attributes[NSShadowAttributeName] as? NSShadow {
+      if let shadow = attributes[NSAttributedStringKey.shadow] as? NSShadow {
         shadowOffset = shadow.shadowOffset
         shadowBlurRadius = shadow.shadowBlurRadius
         shadowColor = shadow.shadowColor as? UIColor
       }
 
       // Paragraph Style
-      if let paragraphStyle = attributes[NSParagraphStyleAttributeName] as? NSParagraphStyle {
+      if let paragraphStyle = attributes[NSAttributedStringKey.paragraphStyle] as? NSParagraphStyle {
         alignment = paragraphStyle.alignment
         firstLineHeadIndent = paragraphStyle.firstLineHeadIndent
         headIndent = paragraphStyle.headIndent
@@ -198,64 +198,64 @@ extension StyledString {
       return result
     }
 
-    var attributes: [String: Any] {
-      var attributes: [String: Any] = [:]
+    var attributes: [NSAttributedStringKey: Any] {
+      var attributes: [NSAttributedStringKey: Any] = [:]
       if let font = font {
-        attributes[NSFontAttributeName] = font
+        attributes[NSAttributedStringKey.font] = font
       }
       if let foregroundColor = foregroundColor {
-        attributes[NSForegroundColorAttributeName] = foregroundColor
+        attributes[NSAttributedStringKey.foregroundColor] = foregroundColor
       }
       if let backgroundColor = backgroundColor {
-        attributes[NSBackgroundColorAttributeName] = backgroundColor
+        attributes[NSAttributedStringKey.backgroundColor] = backgroundColor
       }
       if let ligature = ligature {
-        attributes[NSLigatureAttributeName] = ligature
+        attributes[NSAttributedStringKey.ligature] = ligature
       }
       if let kern = kern {
-        attributes[NSKernAttributeName] = kern
+        attributes[NSAttributedStringKey.kern] = kern
       }
       if let strikethroughStyle = strikethroughStyle {
-        attributes[NSStrikethroughStyleAttributeName] = strikethroughStyle.rawValue
+        attributes[NSAttributedStringKey.strikethroughStyle] = strikethroughStyle.rawValue
       }
       if let strikethroughColor = strikethroughColor {
-        attributes[NSStrikethroughColorAttributeName] = strikethroughColor
+        attributes[NSAttributedStringKey.strikethroughColor] = strikethroughColor
       }
       if let underlineStyle = underlineStyle {
-        attributes[NSUnderlineStyleAttributeName] = underlineStyle.rawValue
+        attributes[NSAttributedStringKey.underlineStyle] = underlineStyle.rawValue
       }
       if let underlineColor = underlineColor {
-        attributes[NSUnderlineColorAttributeName] = underlineColor
+        attributes[NSAttributedStringKey.underlineColor] = underlineColor
       }
       if let strokeWidth = strokeWidth {
-        attributes[NSStrokeWidthAttributeName] = strokeWidth
+        attributes[NSAttributedStringKey.strokeWidth] = strokeWidth
       }
       if let strokeColor = strokeColor {
-        attributes[NSStrokeColorAttributeName] = strokeColor
+        attributes[NSAttributedStringKey.strokeColor] = strokeColor
       }
       if let textEffect = textEffect {
-        attributes[NSTextEffectAttributeName] = textEffect.value
+        attributes[NSAttributedStringKey.textEffect] = textEffect.rawValue
       }
       if let attachment = self.attachment {
-        attributes[NSAttachmentAttributeName] = attachment
+        attributes[NSAttributedStringKey.attachment] = attachment
       }
       if let link = self.link {
-        attributes[NSLinkAttributeName] = link.value
+        attributes[NSAttributedStringKey.link] = link.value
       }
       if let baselineOffset = self.baselineOffset {
-        attributes[NSBaselineOffsetAttributeName] = baselineOffset
+        attributes[NSAttributedStringKey.baselineOffset] = baselineOffset
       }
       if let obliqueness = self.obliqueness {
-        attributes[NSObliquenessAttributeName] = obliqueness
+        attributes[NSAttributedStringKey.obliqueness] = obliqueness
       }
       if let expansion = self.expansion {
-        attributes[NSExpansionAttributeName] = expansion
+        attributes[NSAttributedStringKey.expansion] = expansion
       }
       if let writingDirection = writingDirection {
-        attributes[NSWritingDirectionAttributeName] = writingDirection
+        attributes[NSAttributedStringKey.writingDirection] = writingDirection
       }
       if let verticalGlyphForm = verticalGlyphForm {
-        attributes[NSVerticalGlyphFormAttributeName] = verticalGlyphForm
+        attributes[NSAttributedStringKey.verticalGlyphForm] = verticalGlyphForm
       }
 
       // Shadow
@@ -270,7 +270,7 @@ extension StyledString {
         if let color = self.shadowColor {
           shadow.shadowColor = color
         }
-        attributes[NSShadowAttributeName] = shadow
+        attributes[NSAttributedStringKey.shadow] = shadow
       }
 
       // Paragraph Style
@@ -326,7 +326,7 @@ extension StyledString {
           if let baseWritingDirection = baseWritingDirection {
             paragraphStyle.baseWritingDirection = baseWritingDirection
           }
-          attributes[NSParagraphStyleAttributeName] = paragraphStyle
+          attributes[NSAttributedStringKey.paragraphStyle] = paragraphStyle
       }
       return attributes
     }

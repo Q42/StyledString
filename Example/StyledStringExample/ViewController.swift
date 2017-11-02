@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     super.viewDidLoad()
 
     label1.attributedText = createWithMethods()
-    label2.attributedText = createWithMethods()
+    label2.attributedText = createWithVars()
   }
 
   private func createWithMethods() -> NSAttributedString {
@@ -32,6 +32,7 @@ class ViewController: UIViewController {
     return (hello + " " + world)
       .withShadow()
       .with(font: .boldSystemFont(ofSize: 50))
+      .withTextEffect()
       .attributedString
   }
 
@@ -47,6 +48,7 @@ class ViewController: UIViewController {
     var helloWord = (hello + " " + world)
     helloWord.shadowOffset = CGSize(width: 1, height: 1)
     helloWord.font = .boldSystemFont(ofSize: 50)
+    helloWord.textEffect = .letterPress
 
     return helloWord.attributedString
   }

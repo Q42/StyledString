@@ -56,7 +56,7 @@ indirect enum StyleNode {
   case binary(StyledString, StyledString)
 }
 
-public enum TextEffect {
+public enum TextEffect  {
   case letterPress
 }
 
