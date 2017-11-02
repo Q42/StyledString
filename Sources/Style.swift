@@ -32,14 +32,15 @@ extension Link {
   }
 }
 
-extension TextEffect {
-  init?(rawValue: String) {
+extension TextEffect: RawRepresentable {
+  public init?(rawValue: String) {
     switch rawValue {
-    case NSAttributedString.TextEffectStyle.letterpressStyle: self = .letterPress
+    case NSAttributedString.TextEffectStyle.letterpressStyle.rawValue: self = .letterPress
     default: return nil
     }
   }
-  var rawValue: String {
+
+  public var rawValue: String {
     switch self {
     case .letterPress: return NSAttributedString.TextEffectStyle.letterpressStyle.rawValue
     }
@@ -48,7 +49,7 @@ extension TextEffect {
 
 extension StyledString {
   struct Style {
-    var attributes: [String: Any] = [:]
+    var attributes: [NSAttributedStringKey: Any] = [:]
 
     var font: UIFont? {
       get { return attributes[NSAttributedStringKey.font] as? UIFont }
@@ -279,7 +280,7 @@ extension StyledString {
     init() {
     }
 
-    init(attributes: [String: Any]) {
+    init(attributes: [NSAttributedStringKey: Any]) {
       self.attributes = attributes
     }
 

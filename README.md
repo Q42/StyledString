@@ -1,4 +1,4 @@
-<img src="https://cloud.githubusercontent.com/assets/75655/11761753/631eee38-a0cf-11e5-9b23-4d201f1705cf.png" width="185" alt="StyledString">   [![CI Status](http://img.shields.io/travis/Sander de Vos/StyledString.svg?style=flat)](https://travis-ci.org/Sander de Vos/StyledString)
+<img src="https://cloud.githubusercontent.com/assets/75655/11761753/631eee38-a0cf-11e5-9b23-4d201f1705cf.png" width="185" alt="StyledString">   [![CI Status](http://img.shields.io/travis/Sander%20de%20Vos/StyledString.svg?style=flat)](https://travis-ci.org/Sander%20de%20Vos/StyledString)
 [![Version](https://img.shields.io/cocoapods/v/StyledString.svg?style=flat)](http://cocoapods.org/pods/StyledString)
 [![License](https://img.shields.io/cocoapods/l/StyledString.svg?style=flat)](http://cocoapods.org/pods/StyledString)
 [![Platform](https://img.shields.io/cocoapods/p/StyledString.svg?style=flat)](http://cocoapods.org/pods/StyledString)
@@ -38,6 +38,7 @@ pod "StyledString"
 Releases
 --------
 
+ - **0.5.0** - 2017-11-02 - Add Swift 4 support
  - **0.4.2** - 2017-01-19 - CocoaPods release
  - 0.4.1 - 2017-01-17 - Add `@availability` annotations for Swift 3 conversion
  - 0.4.0 - 2017-01-02 - Swift 3 support
