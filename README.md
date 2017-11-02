@@ -38,6 +38,7 @@ pod "StyledString"
 Releases
 --------
 
+ - **0.5.0** - 2017-11-02 - Add Swift 4 support
  - **0.4.2** - 2017-01-19 - CocoaPods release
  - 0.4.1 - 2017-01-17 - Add `@availability` annotations for Swift 3 conversion
  - 0.4.0 - 2017-01-02 - Swift 3 support
