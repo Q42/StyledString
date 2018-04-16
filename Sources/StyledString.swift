@@ -11,7 +11,8 @@ import UIKit
 
 public struct StyledString {
   fileprivate let node: StyleNode
-  fileprivate var style = Style()
+
+  public var style = Style()
 
   public init() {
     self.node = .unary("")
