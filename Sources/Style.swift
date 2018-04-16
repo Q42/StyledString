@@ -47,48 +47,48 @@ extension TextEffect: RawRepresentable {
 }
 
 extension StyledString {
-  struct Style {
-    var font: UIFont?
-    var foregroundColor: UIColor?
-    var backgroundColor: UIColor?
-    var ligature: Bool?
-    var kern: Float?
-    var strikethroughStyle: NSUnderlineStyle?
-    var strikethroughColor: UIColor?
-    var underlineStyle: NSUnderlineStyle?
-    var underlineColor: UIColor?
-    var strokeWidth: Float?
-    var strokeColor: UIColor?
-    var textEffect: TextEffect?
-    var attachment: NSTextAttachment?
-    var link: Link?
-    var baselineOffset: Float?
-    var obliqueness: Float?
-    var expansion: Float?
-    var writingDirection: [Int]?
-    var verticalGlyphForm: Bool?
+  public struct Style {
+    public var font: UIFont?
+    public var foregroundColor: UIColor?
+    public var backgroundColor: UIColor?
+    public var ligature: Bool?
+    public var kern: Float?
+    public var strikethroughStyle: NSUnderlineStyle?
+    public var strikethroughColor: UIColor?
+    public var underlineStyle: NSUnderlineStyle?
+    public var underlineColor: UIColor?
+    public var strokeWidth: Float?
+    public var strokeColor: UIColor?
+    public var textEffect: TextEffect?
+    public var attachment: NSTextAttachment?
+    public var link: Link?
+    public var baselineOffset: Float?
+    public var obliqueness: Float?
+    public var expansion: Float?
+    public var writingDirection: [Int]?
+    public var verticalGlyphForm: Bool?
 
     // Shadow
-    var shadowOffset: CGSize?
-    var shadowBlurRadius: CGFloat?
-    var shadowColor: UIColor?
+    public var shadowOffset: CGSize?
+    public var shadowBlurRadius: CGFloat?
+    public var shadowColor: UIColor?
 
     // Paragraph Style
-    var alignment: NSTextAlignment?
-    var firstLineHeadIndent: CGFloat?
-    var headIndent: CGFloat?
-    var tailIndent: CGFloat?
-    var lineHeightMultiple: CGFloat?
-    var maximumLineHeight: CGFloat?
-    var minimumLineHeight: CGFloat?
-    var lineSpacing: CGFloat?
-    var paragraphSpacing: CGFloat?
-    var paragraphSpacingBefore: CGFloat?
-    var tabStops: [NSTextTab]?
-    var defaultTabInterval: CGFloat?
-    var lineBreakMode: NSLineBreakMode?
-    var hyphenationFactor: Float?
-    var baseWritingDirection: NSWritingDirection?
+    public var alignment: NSTextAlignment?
+    public var firstLineHeadIndent: CGFloat?
+    public var headIndent: CGFloat?
+    public var tailIndent: CGFloat?
+    public var lineHeightMultiple: CGFloat?
+    public var maximumLineHeight: CGFloat?
+    public var minimumLineHeight: CGFloat?
+    public var lineSpacing: CGFloat?
+    public var paragraphSpacing: CGFloat?
+    public var paragraphSpacingBefore: CGFloat?
+    public var tabStops: [NSTextTab]?
+    public var defaultTabInterval: CGFloat?
+    public var lineBreakMode: NSLineBreakMode?
+    public var hyphenationFactor: Float?
+    public var baseWritingDirection: NSWritingDirection?
 
     init() {
     }
