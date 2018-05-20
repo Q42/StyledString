@@ -107,7 +107,6 @@
 				E228C9A71C162BCC0013DCCF /* Frameworks */,
 				E228C9A81C162BCC0013DCCF /* Resources */,
 				F24C5C5086D6903C80B5E3F8 /* [CP] Embed Pods Frameworks */,
-				4A6C2A65F88FCC564B5490EC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -166,21 +165,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4A6C2A65F88FCC564B5490EC /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StyledStringExample/Pods-StyledStringExample-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		EA85F864EF0AF53B36DE6CBD /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -206,7 +190,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-StyledStringExample/Pods-StyledStringExample-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/StyledString/StyledString.framework",
+				"${BUILT_PRODUCTS_DIR}/StyledString-iOS/StyledString.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
