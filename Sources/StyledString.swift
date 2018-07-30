@@ -375,7 +375,7 @@ public extension StyledString {
   }
 
   public func withUnderline() -> StyledString {
-    return self.with(underlineStyle: .styleSingle)
+    return self.with(underlineStyle: NSUnderlineStyle.single)
   }
 
   public func with(strikethroughStyle style: NSUnderlineStyle?, color: UIColor? = nil) -> StyledString {
@@ -386,7 +386,7 @@ public extension StyledString {
   }
 
   public func withStrikethrough() -> StyledString {
-    return self.with(strikethroughStyle: .styleSingle)
+    return self.with(strikethroughStyle: NSUnderlineStyle.single)
   }
 
   public func with(strokeWidth width: Float?, color: UIColor? = nil) -> StyledString {

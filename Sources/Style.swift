@@ -49,7 +49,7 @@ extension TextEffect: RawRepresentable {
 
 extension StyledString {
   public struct Style {
-    var attributes: [NSAttributedStringKey: Any] = [:]
+    var attributes: [NSAttributedString.Key: Any] = [:]
 
     public var font: UIFont? {
       get { return attributes[.font] as? UIFont }
@@ -280,7 +280,7 @@ extension StyledString {
     init() {
     }
 
-    init(attributes: [NSAttributedStringKey: Any]) {
+    init(attributes: [NSAttributedString.Key: Any]) {
       self.attributes = attributes
     }
 
