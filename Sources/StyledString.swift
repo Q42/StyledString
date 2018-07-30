@@ -143,187 +143,187 @@ extension StyledString: Equatable {
 
 public extension StyledString {
 
-  var font: UIFont? {
+  public var font: UIFont? {
     get { return style.font }
     set { style.font = newValue }
   }
 
-  var foregroundColor: UIColor? {
+  public var foregroundColor: UIColor? {
     get { return style.foregroundColor }
     set { style.foregroundColor = newValue }
   }
 
-  var backgroundColor: UIColor? {
+  public var backgroundColor: UIColor? {
     get { return style.backgroundColor }
     set { style.backgroundColor = newValue }
   }
 
-  var ligatures: Bool? {
+  public var ligatures: Bool? {
     get { return style.ligature }
     set { style.ligature = newValue }
   }
 
-  var kerning: Float? {
+  public var kerning: Float? {
     get { return style.kern }
     set { style.kern = newValue }
   }
 
-  var underlineStyle: NSUnderlineStyle? {
+  public var underlineStyle: NSUnderlineStyle? {
     get { return style.underlineStyle }
     set { style.underlineStyle = newValue }
   }
 
-  var underlineColor: UIColor? {
+  public var underlineColor: UIColor? {
     get { return style.underlineColor }
     set { style.underlineColor = newValue }
   }
 
-  var strikethroughStyle: NSUnderlineStyle? {
+  public var strikethroughStyle: NSUnderlineStyle? {
     get { return style.strikethroughStyle }
     set { style.strikethroughStyle = newValue }
   }
 
-  var strikethroughColor: UIColor? {
+  public var strikethroughColor: UIColor? {
     get { return style.strikethroughColor }
     set { style.strikethroughColor = newValue }
   }
 
-  var strokeWidth: Float?  {
+  public var strokeWidth: Float?  {
     get { return style.strokeWidth }
     set { style.strokeWidth = newValue }
   }
 
-  var strokeColor: UIColor?  {
+  public var strokeColor: UIColor?  {
     get { return style.strokeColor }
     set { style.strokeColor = newValue }
   }
 
-  var shadowOffset: CGSize?  {
+  public var shadowOffset: CGSize?  {
     get { return style.shadowOffset }
     set { style.shadowOffset = newValue }
   }
 
-  var shadowBlurRadius: CGFloat?  {
+  public var shadowBlurRadius: CGFloat?  {
     get { return style.shadowBlurRadius }
     set { style.shadowBlurRadius = newValue }
   }
 
-  var shadowColor: UIColor?  {
+  public var shadowColor: UIColor?  {
     get { return style.shadowColor }
     set { style.shadowColor = newValue }
   }
 
-  var textEffect: TextEffect? {
+  public var textEffect: TextEffect? {
     get { return style.textEffect }
     set { style.textEffect = newValue }
   }
 
-  var attachment: NSTextAttachment? {
+  public var attachment: NSTextAttachment? {
     get { return style.attachment }
     set { style.attachment = newValue }
   }
 
-  var link: Link? {
+  public var link: Link? {
     get { return style.link }
     set { style.link = newValue }
   }
 
-  var baselineOffset: Float? {
+  public var baselineOffset: Float? {
     get { return style.baselineOffset }
     set { style.baselineOffset = newValue }
   }
 
-  var obliqueness: Float? {
+  public var obliqueness: Float? {
     get { return style.obliqueness }
     set { style.obliqueness = newValue }
   }
 
-  var expansion: Float? {
+  public var expansion: Float? {
     get { return style.expansion }
     set { style.expansion = newValue }
   }
 
-  var writingDirection: [Int]? {
+  public var writingDirection: [Int]? {
     get { return style.writingDirection }
     set { style.writingDirection = newValue }
   }
 
-  var verticalGlyphForm: Bool? {
+  public var verticalGlyphForm: Bool? {
     get { return style.verticalGlyphForm }
     set { style.verticalGlyphForm = newValue }
   }
 
-  var alignment: NSTextAlignment? {
+  public var alignment: NSTextAlignment? {
     get { return style.alignment }
     set { style.alignment = newValue }
   }
 
-  var firstLineHeadIndent: CGFloat? {
+  public var firstLineHeadIndent: CGFloat? {
     get { return style.firstLineHeadIndent }
     set { style.firstLineHeadIndent = newValue }
   }
 
-  var headIndent: CGFloat? {
+  public var headIndent: CGFloat? {
     get { return style.headIndent }
     set { style.headIndent = newValue }
   }
 
-  var tailIndent: CGFloat? {
+  public var tailIndent: CGFloat? {
     get { return style.tailIndent }
     set { style.tailIndent = newValue }
   }
 
-  var lineHeightMultiple: CGFloat? {
+  public var lineHeightMultiple: CGFloat? {
     get { return style.lineHeightMultiple }
     set { style.lineHeightMultiple = newValue }
   }
 
-  var maximumLineHeight: CGFloat? {
+  public var maximumLineHeight: CGFloat? {
     get { return style.maximumLineHeight }
     set { style.maximumLineHeight = newValue }
   }
 
-  var minimumLineHeight: CGFloat? {
+  public var minimumLineHeight: CGFloat? {
     get { return style.minimumLineHeight }
     set { style.minimumLineHeight = newValue }
   }
 
-  var lineSpacing: CGFloat? {
+  public var lineSpacing: CGFloat? {
     get { return style.lineSpacing }
     set { style.lineSpacing = newValue }
   }
 
-  var paragraphSpacing: CGFloat? {
+  public var paragraphSpacing: CGFloat? {
     get { return style.paragraphSpacing }
     set { style.paragraphSpacing = newValue }
   }
 
-  var paragraphSpacingBefore: CGFloat? {
+  public var paragraphSpacingBefore: CGFloat? {
     get { return style.paragraphSpacingBefore }
     set { style.paragraphSpacingBefore = newValue }
   }
 
-  var defaultTabInterval: CGFloat? {
+  public var defaultTabInterval: CGFloat? {
     get { return style.defaultTabInterval }
     set { style.defaultTabInterval = newValue }
   }
 
-  var tabStops: [NSTextTab]? {
+  public var tabStops: [NSTextTab]? {
     get { return style.tabStops }
     set { style.tabStops = newValue }
   }
 
-  var lineBreakMode: NSLineBreakMode? {
+  public var lineBreakMode: NSLineBreakMode? {
     get { return style.lineBreakMode }
     set { style.lineBreakMode = newValue }
   }
 
-  var hyphenationFactor: Float? {
+  public var hyphenationFactor: Float? {
     get { return style.hyphenationFactor }
     set { style.hyphenationFactor = newValue }
   }
 
-  var baseWritingDirection: NSWritingDirection? {
+  public var baseWritingDirection: NSWritingDirection? {
     get { return style.baseWritingDirection }
     set { style.baseWritingDirection = newValue }
   }
