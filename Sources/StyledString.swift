@@ -11,7 +11,8 @@ import UIKit
 
 public struct StyledString {
   fileprivate let node: StyleNode
-  fileprivate var style: Style = Style()
+
+  public var style = Style()
 
   public init() {
     self.node = .unary("")
@@ -21,12 +22,17 @@ public struct StyledString {
     self.node = .unary(string)
   }
 
-  init(node: StyleNode) {
+  internal init(node: StyleNode) {
     self.node = node
   }
 
-  init(string: String, style: Style) {
+  internal init(string: String, style: Style) {
     self.node = .unary(string)
+    self.style = style
+  }
+
+  internal init(lhs: StyledString, rhs: StyledString, style: Style) {
+    self.node = .binary(lhs, rhs)
     self.style = style
   }
 }
@@ -108,13 +114,29 @@ public extension StyledString {
   }
 }
 
-// MARK: Equabtale
+// MARK: Mutation
 
-public func == (lhs: StyledString, rhs: StyledString) -> Bool {
-  return lhs.nsAttributedString.isEqual(to: rhs.nsAttributedString)
+extension StyledString {
+  public func mapStyle(transform: ((StyledString.Style) -> StyledString.Style)) -> StyledString {
+    switch self.node {
+    case let .unary(string):
+      return StyledString(string: string, style: transform(self.style))
+
+    case let .binary(lhs, rhs):
+      return StyledString(
+        lhs: lhs.mapStyle(transform: transform),
+        rhs: rhs.mapStyle(transform: transform),
+        style: transform(style))
+    }
+  }
 }
 
+// MARK: Equtabale
+
 extension StyledString: Equatable {
+  public static func == (lhs: StyledString, rhs: StyledString) -> Bool {
+    return lhs.nsAttributedString.isEqual(to: rhs.nsAttributedString)
+  }
 }
 
 // MARK: Style vars

@@ -1,8 +1,16 @@
 source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '8.0'
+workspace 'StyledStringExample.xcworkspace'
 use_frameworks!
 
 pod 'StyledString', :path => '../'
 
-target 'StyledStringExample'
+target 'StyledStringExample' do
+  platform :ios, '8.0'
+  project 'StyledStringExample.xcodepoj'
+end
+
+target 'StyledStringTv' do
+  platform :tvos, '9.0'
+  project 'StyledStringTv.xcodepoj'
+end
 

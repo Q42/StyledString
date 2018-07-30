@@ -48,89 +48,89 @@ extension TextEffect: RawRepresentable {
 }
 
 extension StyledString {
-  struct Style {
+  public struct Style {
     var attributes: [NSAttributedStringKey: Any] = [:]
 
-    var font: UIFont? {
+    public var font: UIFont? {
       get { return attributes[.font] as? UIFont }
       set { attributes[.font] = newValue }
     }
-    var foregroundColor: UIColor? {
+    public var foregroundColor: UIColor? {
       get { return attributes[.foregroundColor] as? UIColor }
       set { attributes[.foregroundColor] = newValue }
     }
-    var backgroundColor: UIColor? {
+    public var backgroundColor: UIColor? {
       get { return attributes[.backgroundColor] as? UIColor }
       set { attributes[.backgroundColor] = newValue }
     }
-    var ligature: Bool? {
+    public var ligature: Bool? {
       get { return attributes[.ligature] as? Bool }
       set { attributes[.ligature] = newValue }
     }
-    var kern: Float? {
+    public var kern: Float? {
       get { return attributes[.kern] as? Float }
       set { attributes[.kern] = newValue }
     }
-    var strikethroughStyle: NSUnderlineStyle? {
+    public var strikethroughStyle: NSUnderlineStyle? {
       get { return (attributes[.strikethroughStyle] as? Int).flatMap(NSUnderlineStyle.init) }
       set { attributes[.strikethroughStyle] = newValue?.rawValue }
     }
-    var strikethroughColor: UIColor? {
+    public var strikethroughColor: UIColor? {
       get { return attributes[.strikethroughColor] as? UIColor }
       set { attributes[.strikethroughColor] = newValue }
     }
-    var underlineStyle: NSUnderlineStyle? {
+    public var underlineStyle: NSUnderlineStyle? {
       get { return (attributes[.underlineStyle] as? Int).flatMap(NSUnderlineStyle.init) }
       set { attributes[.underlineStyle] = newValue?.rawValue }
     }
-    var underlineColor: UIColor? {
+    public var underlineColor: UIColor? {
       get { return attributes[.underlineColor] as? UIColor }
       set { attributes[.underlineColor] = newValue }
     }
-    var strokeWidth: Float? {
+    public var strokeWidth: Float? {
       get { return attributes[.strokeWidth] as? Float }
       set { attributes[.strokeWidth] = newValue }
     }
-    var strokeColor: UIColor? {
+    public var strokeColor: UIColor? {
       get { return attributes[.strokeColor] as? UIColor }
       set { attributes[.strokeColor] = newValue }
     }
-    var textEffect: TextEffect? {
+    public var textEffect: TextEffect? {
       get { return (attributes[.textEffect] as? String).flatMap(TextEffect.init) }
       set { attributes[.textEffect] = newValue?.rawValue }
     }
     @available(iOS 7.0, *)
-    var attachment: NSTextAttachment? {
+    public var attachment: NSTextAttachment? {
       get { return attributes[.attachment] as? NSTextAttachment }
       set { attributes[.attachment] = newValue }
     }
-    var link: Link? {
+    public var link: Link? {
       get { return attributes[.link].flatMap(Link.init) }
       set { attributes[.link] = newValue?.rawValue }
     }
-    var baselineOffset: Float? {
+    public var baselineOffset: Float? {
       get { return attributes[.baselineOffset] as? Float }
       set { attributes[.baselineOffset] = newValue }
     }
-    var obliqueness: Float? {
+    public var obliqueness: Float? {
       get { return attributes[.obliqueness] as? Float }
       set { attributes[.obliqueness] = newValue }
     }
-    var expansion: Float? {
+    public var expansion: Float? {
       get { return attributes[.expansion] as? Float }
       set { attributes[.expansion] = newValue }
     }
-    var writingDirection: [Int]? {
+    public var writingDirection: [Int]? {
       get { return attributes[.writingDirection] as? [Int] }
       set { attributes[.writingDirection] = newValue }
     }
-    var verticalGlyphForm: Bool? {
+    public var verticalGlyphForm: Bool? {
       get { return attributes[.verticalGlyphForm] as? Bool }
       set { attributes[.verticalGlyphForm] = newValue }
     }
 
     // Shadow
-    var shadowOffset: CGSize? {
+    public var shadowOffset: CGSize? {
       get { return (attributes[.shadow] as? NSShadow)?.shadowOffset }
       set {
         let shadow = attributes[.shadow] as? NSShadow ?? NSShadow()
@@ -138,7 +138,7 @@ extension StyledString {
         attributes[.shadow] = shadow
       }
     }
-    var shadowBlurRadius: CGFloat? {
+    public var shadowBlurRadius: CGFloat? {
       get { return (attributes[.shadow] as? NSShadow)?.shadowBlurRadius }
       set {
         let shadow = attributes[.shadow] as? NSShadow ?? NSShadow()
@@ -146,7 +146,7 @@ extension StyledString {
         attributes[.shadow] = shadow
       }
     }
-    var shadowColor: UIColor? {
+    public var shadowColor: UIColor? {
       get { return (attributes[.shadow] as? NSShadow)?.shadowColor as? UIColor }
       set {
         let shadow = attributes[.shadow] as? NSShadow ?? NSShadow()
@@ -156,7 +156,7 @@ extension StyledString {
     }
 
     // Paragraph Style
-    var alignment: NSTextAlignment? {
+    public var alignment: NSTextAlignment? {
       get { return (attributes[.paragraphStyle] as? NSParagraphStyle)?.alignment }
       set {
         let style = attributes[.paragraphStyle] as? NSMutableParagraphStyle ?? NSMutableParagraphStyle()
@@ -164,7 +164,7 @@ extension StyledString {
         attributes[.paragraphStyle] = style
       }
     }
-    var firstLineHeadIndent: CGFloat? {
+    public var firstLineHeadIndent: CGFloat? {
       get { return (attributes[.paragraphStyle] as? NSParagraphStyle)?.firstLineHeadIndent }
       set {
         let style = attributes[.paragraphStyle] as? NSMutableParagraphStyle ?? NSMutableParagraphStyle()
@@ -172,7 +172,7 @@ extension StyledString {
         attributes[.paragraphStyle] = style
       }
     }
-    var headIndent: CGFloat? {
+    public var headIndent: CGFloat? {
       get { return (attributes[.paragraphStyle] as? NSParagraphStyle)?.headIndent }
       set {
         let style = attributes[.paragraphStyle] as? NSMutableParagraphStyle ?? NSMutableParagraphStyle()
@@ -180,7 +180,7 @@ extension StyledString {
         attributes[.paragraphStyle] = style
       }
     }
-    var tailIndent: CGFloat? {
+    public  var tailIndent: CGFloat? {
       get { return (attributes[.paragraphStyle] as? NSParagraphStyle)?.tailIndent }
       set {
         let style = attributes[.paragraphStyle] as? NSMutableParagraphStyle ?? NSMutableParagraphStyle()
@@ -188,7 +188,7 @@ extension StyledString {
         attributes[.paragraphStyle] = style
       }
     }
-    var lineHeightMultiple: CGFloat? {
+    public var lineHeightMultiple: CGFloat? {
       get { return (attributes[.paragraphStyle] as? NSParagraphStyle)?.lineHeightMultiple }
       set {
         let style = attributes[.paragraphStyle] as? NSMutableParagraphStyle ?? NSMutableParagraphStyle()
@@ -196,7 +196,7 @@ extension StyledString {
         attributes[.paragraphStyle] = style
       }
     }
-    var maximumLineHeight: CGFloat? {
+    public var maximumLineHeight: CGFloat? {
       get { return (attributes[.paragraphStyle] as? NSParagraphStyle)?.maximumLineHeight }
       set {
         let style = attributes[.paragraphStyle] as? NSMutableParagraphStyle ?? NSMutableParagraphStyle()
@@ -204,7 +204,7 @@ extension StyledString {
         attributes[.paragraphStyle] = style
       }
     }
-    var minimumLineHeight: CGFloat? {
+    public var minimumLineHeight: CGFloat? {
       get { return (attributes[.paragraphStyle] as? NSParagraphStyle)?.minimumLineHeight }
       set {
         let style = attributes[.paragraphStyle] as? NSMutableParagraphStyle ?? NSMutableParagraphStyle()
@@ -212,7 +212,7 @@ extension StyledString {
         attributes[.paragraphStyle] = style
       }
     }
-    var lineSpacing: CGFloat? {
+    public var lineSpacing: CGFloat? {
       get { return (attributes[.paragraphStyle] as? NSParagraphStyle)?.lineSpacing }
       set {
         let style = attributes[.paragraphStyle] as? NSMutableParagraphStyle ?? NSMutableParagraphStyle()
@@ -220,7 +220,7 @@ extension StyledString {
         attributes[.paragraphStyle] = style
       }
     }
-    var paragraphSpacing: CGFloat? {
+    public var paragraphSpacing: CGFloat? {
       get { return (attributes[.paragraphStyle] as? NSParagraphStyle)?.paragraphSpacing }
       set {
         let style = attributes[.paragraphStyle] as? NSMutableParagraphStyle ?? NSMutableParagraphStyle()
@@ -228,7 +228,7 @@ extension StyledString {
         attributes[.paragraphStyle] = style
       }
     }
-    var paragraphSpacingBefore: CGFloat? {
+    public var paragraphSpacingBefore: CGFloat? {
       get { return (attributes[.paragraphStyle] as? NSParagraphStyle)?.paragraphSpacingBefore }
       set {
         let style = attributes[.paragraphStyle] as? NSMutableParagraphStyle ?? NSMutableParagraphStyle()
@@ -236,7 +236,7 @@ extension StyledString {
         attributes[.paragraphStyle] = style
       }
     }
-    var tabStops: [NSTextTab]? {
+    public var tabStops: [NSTextTab]? {
       get { return (attributes[.paragraphStyle] as? NSParagraphStyle)?.tabStops }
       set {
         let style = attributes[.paragraphStyle] as? NSMutableParagraphStyle ?? NSMutableParagraphStyle()
@@ -244,7 +244,7 @@ extension StyledString {
         attributes[.paragraphStyle] = style
       }
     }
-    var defaultTabInterval: CGFloat? {
+    public var defaultTabInterval: CGFloat? {
       get { return (attributes[.paragraphStyle] as? NSParagraphStyle)?.defaultTabInterval }
       set {
         let style = attributes[.paragraphStyle] as? NSMutableParagraphStyle ?? NSMutableParagraphStyle()
@@ -252,7 +252,7 @@ extension StyledString {
         attributes[.paragraphStyle] = style
       }
     }
-    var lineBreakMode: NSLineBreakMode? {
+    public var lineBreakMode: NSLineBreakMode? {
       get { return (attributes[.paragraphStyle] as? NSParagraphStyle)?.lineBreakMode }
       set {
         let style = attributes[.paragraphStyle] as? NSMutableParagraphStyle ?? NSMutableParagraphStyle()
@@ -260,7 +260,7 @@ extension StyledString {
         attributes[.paragraphStyle] = style
       }
     }
-    var hyphenationFactor: Float? {
+    public var hyphenationFactor: Float? {
       get { return (attributes[.paragraphStyle] as? NSParagraphStyle)?.hyphenationFactor }
       set {
         let style = attributes[.paragraphStyle] as? NSMutableParagraphStyle ?? NSMutableParagraphStyle()
@@ -268,7 +268,7 @@ extension StyledString {
         attributes[.paragraphStyle] = style
       }
     }
-    var baseWritingDirection: NSWritingDirection? {
+    public var baseWritingDirection: NSWritingDirection? {
       get { return (attributes[.paragraphStyle] as? NSParagraphStyle)?.baseWritingDirection }
       set {
         let style = attributes[.paragraphStyle] as? NSMutableParagraphStyle ?? NSMutableParagraphStyle()
