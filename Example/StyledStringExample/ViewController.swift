@@ -33,7 +33,7 @@ class ViewController: UIViewController {
       .withShadow()
       .with(font: .boldSystemFont(ofSize: 50))
       .withTextEffect()
-      .attributedString
+      .nsAttributedString
   }
 
   private func createWithVars() -> NSAttributedString {
@@ -50,7 +50,7 @@ class ViewController: UIViewController {
     helloWord.font = .boldSystemFont(ofSize: 50)
     helloWord.textEffect = .letterPress
 
-    return helloWord.attributedString
+    return helloWord.nsAttributedString
   }
 
 }

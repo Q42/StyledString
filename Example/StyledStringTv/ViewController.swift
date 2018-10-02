@@ -30,7 +30,7 @@ class ViewController: UIViewController {
       .withShadow()
       .with(font: .boldSystemFont(ofSize: 50))
       .withTextEffect()
-      .attributedString
+      .nsAttributedString
   }
 
 }
