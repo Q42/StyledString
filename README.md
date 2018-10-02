@@ -38,6 +38,7 @@ pod "StyledString"
 Releases
 --------
 
+ - 0.7.0 - 2018-10-02 - Swift 4.2 support, use dictionaries for internal state
  - 0.6.0 - 2018-04-16 - Style is now public
  - 0.5.0 - 2017-11-02 - Add Swift 4 support
  - **0.4.2** - 2017-01-19 - CocoaPods release
