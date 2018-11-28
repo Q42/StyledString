@@ -23,14 +23,14 @@ class StyledStringTests: XCTestCase {
   }
 
   func testRightAlign() {
-    let first = StyledString("First").with(alignment: .right)
+    let first = StyledString("First")
     let second = StyledString("Second").with(alignment: .right)
 
-    let joined = first + second
+    let joined = [first, second].joined(separator: "\n")
 
-    let attributes = joined.attributedString.attributes(at: 0, effectiveRange: nil)
-    let paragraphStyle = attributes[NSAttributedString.Key.paragraphStyle] as! NSParagraphStyle
-    XCTAssertEqual(paragraphStyle.alignment, .right)
+    let attributes = joined.nsAttributedString.attributes(at: 1, effectiveRange: nil)
+    let paragraphStyle = attributes[NSAttributedString.Key.paragraphStyle] as? NSParagraphStyle
+    XCTAssertNil(paragraphStyle)
   }
 
 }
