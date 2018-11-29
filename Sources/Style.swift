@@ -49,7 +49,9 @@ extension TextEffect: RawRepresentable {
 
 extension StyledString {
   public struct Style {
-    var attributes: [NSAttributedString.Key: Any] = [:]
+    private var attributes: [NSAttributedString.Key: Any] = [:]
+    private var shadow: [NSShadow.Key: Any] = [:]
+    private var paragraphStyle: [NSParagraphStyle.Key: Any] = [:]
 
     public var font: UIFont? {
       get { return attributes[.font] as? UIFont }
@@ -131,178 +133,164 @@ extension StyledString {
 
     // Shadow
     public var shadowOffset: CGSize? {
-      get { return (attributes[.shadow] as? NSShadow)?.shadowOffset }
-      set {
-        guard let newValue = newValue else { return }
-        let shadow = attributes[.shadow] as? NSShadow ?? NSShadow()
-        shadow.shadowOffset = newValue
-        attributes[.shadow] = shadow
-      }
+      get { return shadow[.offset] as? CGSize }
+      set { shadow[.offset] = newValue }
     }
     public var shadowBlurRadius: CGFloat? {
-      get { return (attributes[.shadow] as? NSShadow)?.shadowBlurRadius }
-      set {
-        guard let newValue = newValue else { return }
-        let shadow = attributes[.shadow] as? NSShadow ?? NSShadow()
-        shadow.shadowBlurRadius = newValue
-        attributes[.shadow] = shadow
-      }
+      get { return shadow[.blurRadius] as? CGFloat }
+      set { shadow[.blurRadius] = newValue }
     }
     public var shadowColor: UIColor? {
-      get { return (attributes[.shadow] as? NSShadow)?.shadowColor as? UIColor }
-      set {
-        guard let newValue = newValue else { return }
-        let shadow = attributes[.shadow] as? NSShadow ?? NSShadow()
-        shadow.shadowColor = newValue
-        attributes[.shadow] = shadow
-      }
+      get { return shadow[.color] as? UIColor }
+      set { shadow[.color] = newValue }
     }
 
     // Paragraph Style
     public var alignment: NSTextAlignment? {
-      get { return (attributes[.paragraphStyle] as? NSParagraphStyle)?.alignment }
-      set {
-        guard let newValue = newValue else { return }
-        let style = attributes[.paragraphStyle] as? NSMutableParagraphStyle ?? NSMutableParagraphStyle()
-        style.alignment = newValue
-        attributes[.paragraphStyle] = style
-      }
+      get { return paragraphStyle[.alignment] as? NSTextAlignment }
+      set { paragraphStyle[.alignment] = newValue }
     }
     public var firstLineHeadIndent: CGFloat? {
-      get { return (attributes[.paragraphStyle] as? NSParagraphStyle)?.firstLineHeadIndent }
-      set {
-        guard let newValue = newValue else { return }
-        let style = attributes[.paragraphStyle] as? NSMutableParagraphStyle ?? NSMutableParagraphStyle()
-        style.firstLineHeadIndent = newValue
-        attributes[.paragraphStyle] = style
-      }
+      get { return paragraphStyle[.firstLineHeadIndent] as? CGFloat }
+      set { paragraphStyle[.firstLineHeadIndent] = newValue }
     }
     public var headIndent: CGFloat? {
-      get { return (attributes[.paragraphStyle] as? NSParagraphStyle)?.headIndent }
-      set {
-        guard let newValue = newValue else { return }
-        let style = attributes[.paragraphStyle] as? NSMutableParagraphStyle ?? NSMutableParagraphStyle()
-        style.headIndent = newValue
-        attributes[.paragraphStyle] = style
-      }
+      get { return paragraphStyle[.headIndent] as? CGFloat }
+      set { paragraphStyle[.headIndent] = newValue }
     }
     public  var tailIndent: CGFloat? {
-      get { return (attributes[.paragraphStyle] as? NSParagraphStyle)?.tailIndent }
-      set {
-        guard let newValue = newValue else { return }
-        let style = attributes[.paragraphStyle] as? NSMutableParagraphStyle ?? NSMutableParagraphStyle()
-        style.tailIndent = newValue
-        attributes[.paragraphStyle] = style
-      }
+      get { return paragraphStyle[.tailIndent] as? CGFloat }
+      set { paragraphStyle[.tailIndent] = newValue }
     }
     public var lineHeightMultiple: CGFloat? {
-      get { return (attributes[.paragraphStyle] as? NSParagraphStyle)?.lineHeightMultiple }
-      set {
-        guard let newValue = newValue else { return }
-        let style = attributes[.paragraphStyle] as? NSMutableParagraphStyle ?? NSMutableParagraphStyle()
-        style.lineHeightMultiple = newValue
-        attributes[.paragraphStyle] = style
-      }
+      get { return paragraphStyle[.lineHeightMultiple] as? CGFloat }
+      set { paragraphStyle[.lineHeightMultiple] = newValue }
     }
     public var maximumLineHeight: CGFloat? {
-      get { return (attributes[.paragraphStyle] as? NSParagraphStyle)?.maximumLineHeight }
-      set {
-        guard let newValue = newValue else { return }
-        let style = attributes[.paragraphStyle] as? NSMutableParagraphStyle ?? NSMutableParagraphStyle()
-        style.maximumLineHeight = newValue
-        attributes[.paragraphStyle] = style
-      }
+      get { return paragraphStyle[.maximumLineHeight] as? CGFloat }
+      set { paragraphStyle[.maximumLineHeight] = newValue }
     }
     public var minimumLineHeight: CGFloat? {
-      get { return (attributes[.paragraphStyle] as? NSParagraphStyle)?.minimumLineHeight }
-      set {
-        guard let newValue = newValue else { return }
-        let style = attributes[.paragraphStyle] as? NSMutableParagraphStyle ?? NSMutableParagraphStyle()
-        style.minimumLineHeight = newValue
-        attributes[.paragraphStyle] = style
-      }
+      get { return paragraphStyle[.minimumLineHeight] as? CGFloat }
+      set { paragraphStyle[.minimumLineHeight] = newValue }
     }
     public var lineSpacing: CGFloat? {
-      get { return (attributes[.paragraphStyle] as? NSParagraphStyle)?.lineSpacing }
-      set {
-        guard let newValue = newValue else { return }
-        let style = attributes[.paragraphStyle] as? NSMutableParagraphStyle ?? NSMutableParagraphStyle()
-        style.lineSpacing = newValue
-        attributes[.paragraphStyle] = style
-      }
+      get { return paragraphStyle[.lineSpacing] as? CGFloat }
+      set { paragraphStyle[.lineSpacing] = newValue }
     }
     public var paragraphSpacing: CGFloat? {
-      get { return (attributes[.paragraphStyle] as? NSParagraphStyle)?.paragraphSpacing }
-      set {
-        guard let newValue = newValue else { return }
-        let style = attributes[.paragraphStyle] as? NSMutableParagraphStyle ?? NSMutableParagraphStyle()
-        style.paragraphSpacing = newValue
-        attributes[.paragraphStyle] = style
-      }
+      get { return paragraphStyle[.paragraphSpacing] as? CGFloat }
+      set { paragraphStyle[.paragraphSpacing] = newValue }
     }
     public var paragraphSpacingBefore: CGFloat? {
-      get { return (attributes[.paragraphStyle] as? NSParagraphStyle)?.paragraphSpacingBefore }
-      set {
-        guard let newValue = newValue else { return }
-        let style = attributes[.paragraphStyle] as? NSMutableParagraphStyle ?? NSMutableParagraphStyle()
-        style.paragraphSpacingBefore = newValue
-        attributes[.paragraphStyle] = style
-      }
+      get { return paragraphStyle[.paragraphSpacingBefore] as? CGFloat }
+      set { paragraphStyle[.paragraphSpacingBefore] = newValue }
     }
     public var tabStops: [NSTextTab]? {
-      get { return (attributes[.paragraphStyle] as? NSParagraphStyle)?.tabStops }
-      set {
-        guard let newValue = newValue else { return }
-        let style = attributes[.paragraphStyle] as? NSMutableParagraphStyle ?? NSMutableParagraphStyle()
-        style.tabStops = newValue
-        attributes[.paragraphStyle] = style
-      }
+      get { return paragraphStyle[.tabStops] as? [NSTextTab] }
+      set { paragraphStyle[.tabStops] = newValue }
     }
     public var defaultTabInterval: CGFloat? {
-      get { return (attributes[.paragraphStyle] as? NSParagraphStyle)?.defaultTabInterval }
-      set {
-        guard let newValue = newValue else { return }
-        let style = attributes[.paragraphStyle] as? NSMutableParagraphStyle ?? NSMutableParagraphStyle()
-        style.defaultTabInterval = newValue
-        attributes[.paragraphStyle] = style
-      }
+      get { return paragraphStyle[.defaultTabInterval] as? CGFloat }
+      set { paragraphStyle[.defaultTabInterval] = newValue }
     }
     public var lineBreakMode: NSLineBreakMode? {
-      get { return (attributes[.paragraphStyle] as? NSParagraphStyle)?.lineBreakMode }
-      set {
-        guard let newValue = newValue else { return }
-        let style = attributes[.paragraphStyle] as? NSMutableParagraphStyle ?? NSMutableParagraphStyle()
-        style.lineBreakMode = newValue
-        attributes[.paragraphStyle] = style
-      }
+      get { return paragraphStyle[.lineBreakMode] as? NSLineBreakMode }
+      set { paragraphStyle[.lineBreakMode] = newValue }
     }
     public var hyphenationFactor: Float? {
-      get { return (attributes[.paragraphStyle] as? NSParagraphStyle)?.hyphenationFactor }
-      set {
-        guard let newValue = newValue else { return }
-        let style = attributes[.paragraphStyle] as? NSMutableParagraphStyle ?? NSMutableParagraphStyle()
-        style.hyphenationFactor = newValue
-        attributes[.paragraphStyle] = style
-      }
+      get { return paragraphStyle[.hyphenationFactor] as? Float }
+      set { paragraphStyle[.hyphenationFactor] = newValue }
     }
     public var baseWritingDirection: NSWritingDirection? {
-      get { return (attributes[.paragraphStyle] as? NSParagraphStyle)?.baseWritingDirection }
+      get { return paragraphStyle[.baseWritingDirection] as? NSWritingDirection }
+      set { paragraphStyle[.baseWritingDirection] = newValue }
+    }
+
+    internal var nsShadow: NSShadow? {
+      get {
+        if self.shadow.isEmpty { return nil }
+
+        let result = NSShadow()
+        result.shadowOffset = shadowOffset ?? result.shadowOffset
+        result.shadowBlurRadius = shadowBlurRadius ?? result.shadowBlurRadius
+        result.shadowColor = shadowColor ?? result.shadowColor
+
+        return result
+      }
       set {
-        guard let newValue = newValue else { return }
-        let style = attributes[.paragraphStyle] as? NSMutableParagraphStyle ?? NSMutableParagraphStyle()
-        style.baseWritingDirection = newValue
-        attributes[.paragraphStyle] = style
+        self.shadow[.offset] = newValue?.shadowOffset
+        self.shadow[.blurRadius] = newValue?.shadowBlurRadius
+        self.shadow[.color] = newValue?.shadowColor
       }
     }
 
-    init() {
+    internal var nsParagraphStyle: NSParagraphStyle? {
+      get {
+        if self.paragraphStyle.isEmpty { return nil }
+
+        let result = NSMutableParagraphStyle()
+        result.alignment = alignment ?? result.alignment
+        result.firstLineHeadIndent = firstLineHeadIndent ?? result.firstLineHeadIndent
+        result.headIndent = headIndent ?? result.headIndent
+        result.tailIndent = tailIndent ?? result.tailIndent
+        result.lineHeightMultiple = lineHeightMultiple ?? result.lineHeightMultiple
+        result.maximumLineHeight = maximumLineHeight ?? result.maximumLineHeight
+        result.minimumLineHeight = minimumLineHeight ?? result.minimumLineHeight
+        result.lineSpacing = lineSpacing ?? result.lineSpacing
+        result.paragraphSpacing = paragraphSpacing ?? result.paragraphSpacing
+        result.paragraphSpacingBefore = paragraphSpacingBefore ?? result.paragraphSpacingBefore
+        result.tabStops = tabStops ?? result.tabStops
+        result.defaultTabInterval = defaultTabInterval ?? result.defaultTabInterval
+        result.lineBreakMode = lineBreakMode ?? result.lineBreakMode
+        result.hyphenationFactor = hyphenationFactor ?? result.hyphenationFactor
+        result.baseWritingDirection = baseWritingDirection ?? result.baseWritingDirection
+
+        return result
+      }
+      set {
+        self.paragraphStyle[.alignment] = newValue?.alignment
+        self.paragraphStyle[.firstLineHeadIndent] = newValue?.firstLineHeadIndent
+        self.paragraphStyle[.headIndent] = newValue?.headIndent
+        self.paragraphStyle[.tailIndent] = newValue?.tailIndent
+        self.paragraphStyle[.lineHeightMultiple] = newValue?.lineHeightMultiple
+        self.paragraphStyle[.maximumLineHeight] = newValue?.maximumLineHeight
+        self.paragraphStyle[.minimumLineHeight] = newValue?.minimumLineHeight
+        self.paragraphStyle[.lineSpacing] = newValue?.lineSpacing
+        self.paragraphStyle[.paragraphSpacing] = newValue?.paragraphSpacing
+        self.paragraphStyle[.paragraphSpacingBefore] = newValue?.paragraphSpacingBefore
+        self.paragraphStyle[.tabStops] = newValue?.tabStops
+        self.paragraphStyle[.defaultTabInterval] = newValue?.defaultTabInterval
+        self.paragraphStyle[.lineBreakMode] = newValue?.lineBreakMode
+        self.paragraphStyle[.hyphenationFactor] = newValue?.hyphenationFactor
+        self.paragraphStyle[.baseWritingDirection] = newValue?.baseWritingDirection
+      }
     }
 
-    init(attributes: [NSAttributedString.Key: Any]) {
+    internal init() {
+    }
+
+    internal init(attributes: [NSAttributedString.Key: Any]) {
+      let shadow = attributes[.shadow] as? NSShadow
+      let paragraphStyle = attributes[.paragraphStyle] as? NSParagraphStyle
+
       self.attributes = attributes
+      self.attributes[.shadow] = nil
+      self.attributes[.paragraphStyle] = nil
+
+      self.nsShadow = shadow
+      self.nsParagraphStyle = paragraphStyle
     }
 
-    func merge(_ style: Style) -> Style {
+    internal var nsAttributes: [NSAttributedString.Key: Any] {
+      var attrs = self.attributes
+      attrs[.shadow] = self.nsShadow
+      attrs[.paragraphStyle] = self.nsParagraphStyle
+
+      return attrs
+    }
+
+    internal func merge(_ style: Style) -> Style {
       var result = self
       result.font ??= style.font
       result.foregroundColor ??= style.foregroundColor
@@ -346,5 +334,41 @@ extension StyledString {
 
       return result
     }
+  }
+}
+
+extension NSShadow {
+  struct Key: Hashable, RawRepresentable {
+    static let offset = Key("offset")
+    static let blurRadius = Key("blurRadius")
+    static let color = Key("color")
+
+    let rawValue: String
+    init(_ rawValue: String) { self.rawValue = rawValue }
+    init(rawValue: String) { self.rawValue = rawValue }
+  }
+}
+
+extension NSParagraphStyle {
+  struct Key: Hashable {
+    static let alignment = Key("alignment")
+    static let firstLineHeadIndent = Key("firstLineHeadIndent")
+    static let headIndent = Key("headIndent")
+    static let tailIndent = Key("tailIndent")
+    static let lineHeightMultiple = Key("lineHeightMultiple")
+    static let maximumLineHeight = Key("maximumLineHeight")
+    static let minimumLineHeight = Key("minimumLineHeight")
+    static let lineSpacing = Key("lineSpacing")
+    static let paragraphSpacing = Key("paragraphSpacing")
+    static let paragraphSpacingBefore = Key("paragraphSpacingBefore")
+    static let tabStops = Key("tabStops")
+    static let defaultTabInterval = Key("defaultTabInterval")
+    static let lineBreakMode = Key("lineBreakMode")
+    static let hyphenationFactor = Key("hyphenationFactor")
+    static let baseWritingDirection = Key("baseWritingDirection")
+
+    let rawValue: String
+    init(_ rawValue: String) { self.rawValue = rawValue }
+    init(rawValue: String) { self.rawValue = rawValue }
   }
 }

@@ -10,11 +10,11 @@ import Foundation
 
 extension NSAttributedString {
   convenience init(string: String, style: StyledString.Style) {
-    self.init(string: string, attributes: style.attributes)
+    self.init(string: string, attributes: style.nsAttributes)
   }
 }
 
-func +(lhs: NSAttributedString, rhs: NSAttributedString) -> NSAttributedString {
+internal func +(lhs: NSAttributedString, rhs: NSAttributedString) -> NSAttributedString {
   let result = NSMutableAttributedString()
   result.append(lhs)
   result.append(rhs)
