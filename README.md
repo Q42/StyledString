@@ -38,6 +38,7 @@ pod "StyledString"
 Releases
 --------
 
+ - 0.7.2 - 2018-11-29 - Fix another bug with paragraph style
  - 0.7.1 - 2018-11-28 - Fix bug with paragraph style
  - 0.7.0 - 2018-10-02 - Swift 4.2 support, use dictionaries for internal state
  - 0.6.0 - 2018-04-16 - Style is now public
