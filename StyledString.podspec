@@ -12,6 +12,8 @@ Pod::Spec.new do |s|
   s.author           = { "Sander de Vos" => "sander@q42.nl" }
   s.source           = { :git => "https://github.com/Q42/StyledString.git", :tag => s.version.to_s }
 
+  s.pod_target_xcconfig = { 'APPLICATION_EXTENSION_API_ONLY' => 'YES' }
+
   s.ios.deployment_target   = '8.0'
   s.tvos.deployment_target  = '9.0'
   s.swift_version           = '4.2'
