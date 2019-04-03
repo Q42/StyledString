@@ -73,7 +73,7 @@ public enum Link {
 
 // MARK: NSAttributedString support
 
-public extension StyledString {
+extension StyledString {
 
   public init(attributedString: NSAttributedString) {
 
@@ -141,7 +141,7 @@ extension StyledString: Equatable {
 
 // MARK: Style vars
 
-public extension StyledString {
+extension StyledString {
 
   public var font: UIFont? {
     get { return style.font }
@@ -332,7 +332,7 @@ public extension StyledString {
 
 // MARK: Style methods
 
-public extension StyledString {
+extension StyledString {
   public func with(font: UIFont?) -> StyledString {
     var new = self
     new.style.font = font

@@ -138,6 +138,7 @@
 				TargetAttributes = {
 					E22CE4C821AD19D500F35091 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 					};
 					E22CE4E821AD1C2600F35091 = {
 						CreatedOnToolsVersion = 10.1;
@@ -150,6 +151,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = E22CE4BF21AD19D400F35091;
 			productRefGroup = E22CE4CA21AD19D500F35091 /* Products */;
@@ -342,7 +344,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.q42.StyledString;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -366,7 +368,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.q42.StyledString;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -383,7 +385,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.q42.StyledStringTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -400,7 +402,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.q42.StyledStringTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
