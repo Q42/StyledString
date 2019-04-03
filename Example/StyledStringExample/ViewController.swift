@@ -38,11 +38,11 @@ class ViewController: UIViewController {
 
   private func createWithVars() -> NSAttributedString {
     var hello = StyledString("Hello")
-    hello.underlineStyle = .styleSingle
+    hello.underlineStyle = NSUnderlineStyle.single
     hello.foregroundColor = .blue
 
     var world = StyledString("world")
-    world.strikethroughStyle = .styleSingle
+    world.strikethroughStyle = NSUnderlineStyle.single
     world.foregroundColor = .red
 
     var helloWord = (hello + " " + world)

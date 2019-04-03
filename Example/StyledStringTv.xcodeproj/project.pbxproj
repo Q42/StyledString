@@ -119,7 +119,7 @@
 				TargetAttributes = {
 					E2ED425F20B1A6450099829B = {
 						CreatedOnToolsVersion = 9.3;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1020;
 					};
 				};
 			};
@@ -178,7 +178,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-StyledStringTv/Pods-StyledStringTv-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-StyledStringTv/Pods-StyledStringTv-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/StyledString-tvOS/StyledString.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -187,7 +187,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StyledStringTv/Pods-StyledStringTv-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-StyledStringTv/Pods-StyledStringTv-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -342,7 +342,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Q42.StyledStringTv.StyledStringTv;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
 			};
 			name = Debug;
@@ -361,7 +361,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Q42.StyledStringTv.StyledStringTv;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
 			};
 			name = Release;
