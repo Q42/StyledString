@@ -177,13 +177,12 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-StyledStringTv/Pods-StyledStringTv-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/StyledString-tvOS/StyledString.framework",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-StyledStringTv/Pods-StyledStringTv-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/StyledString.framework",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-StyledStringTv/Pods-StyledStringTv-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

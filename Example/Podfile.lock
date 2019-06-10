@@ -1,5 +1,5 @@
 PODS:
-  - StyledString (0.7.2)
+  - StyledString (0.8.0)
 
 DEPENDENCIES:
   - StyledString (from `../`)
@@ -9,8 +9,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  StyledString: ee7147cbc917a96b8097eeea1017444b6644214b
+  StyledString: a9edeea62128321bbdfd51cc7470ea61374ce73f
 
 PODFILE CHECKSUM: cf9ce15f9bd186bf7bfbb149ca84f1193d9b945e
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.7.1
